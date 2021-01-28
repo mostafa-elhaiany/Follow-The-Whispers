@@ -32,9 +32,9 @@ public class AudioManager : MonoBehaviour
 
     void Update()
     {
-        mixer.SetFloat("master", GameManager.mainSound);
-        mixer.SetFloat("effects", GameManager.effectsSound);
-        mixer.SetFloat("speech", GameManager.speechSound);
+        mixer.SetFloat("masterVolume", GameManager.mainSound);
+        mixer.SetFloat("effectVolume", GameManager.effectsSound);
+        mixer.SetFloat("speechVolume", GameManager.speechSound);
 
     }
 
