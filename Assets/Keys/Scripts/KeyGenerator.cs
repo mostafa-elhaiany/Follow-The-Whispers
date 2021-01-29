@@ -25,8 +25,7 @@ public class KeyGenerator : MonoBehaviour
         {
             Transform pos = positions[0].transform;
             Remove(0);
-            Instantiate(activeKey, pos.position, pos.rotation);
-            Destroy(pos.gameObject);
+            Instantiate(activeKey, pos);
         }
 
         Shuffle(positions);
@@ -34,8 +33,7 @@ public class KeyGenerator : MonoBehaviour
         {
             Transform pos = positions[0].transform;
             Remove(0);
-            Instantiate(key, pos.position, pos.rotation);
-            Destroy(pos.gameObject);
+            Instantiate(key, pos);
         }
 
 
