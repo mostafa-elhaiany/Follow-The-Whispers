@@ -7,6 +7,8 @@ TagManager:
   - Fire
   - Nanny
   - Ghost
+  - Key
+  - ActiveKey
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,7 @@ public class flashlightCollider : MonoBehaviour
 
         if (other.CompareTag("Ghost"))
         {
-            //TODO call function to partol
+            other.GetComponent<EnemyLogic>().ghostForcedPatrolling();
         }
         else if (other.CompareTag("Nanny"))
         {
