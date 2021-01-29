@@ -17,6 +17,7 @@ Vector3 center;
 public float radius;
 public bool waiting; //used by animator
 public Transform initialPos;
+GameObject player;
 int index;
 public bool playerReported; //used by other ghosts to tell the nanny they found him
 
@@ -43,6 +44,7 @@ void awake(){
     {
         GameObject[] playerGameObject = GameObject.FindGameObjectsWithTag("Player");
         playerTransform = playerGameObject[0].transform;
+        player = playerGameObject[0];
         //constantly checks if the player is seen and updates global variable seenPlayer
         playerSeenStatusUpdate();
         //I either saw the player, or I am the nanny and someone reported it
@@ -113,20 +115,15 @@ void awake(){
 
     void playerSeenStatusUpdate()
     {
-        
-        //returns all colliders that overlap
-        Collider[] hitColliders = Physics.OverlapSphere(center, radius);
-        foreach (var hitCollider in hitColliders)
-        {
-           // Debug.Log(hitCollider.gameObject.name);
-            //player collided
-            if(hitCollider.tag == "Player"){
-                Debug.Log("Player collided");
-                //is the player in my field of view?
+                //first check distance
+                //then check is the player in my field of view?
                 //get direction from enemy to player
-                Vector3 direction = hitCollider.gameObject.transform.position - transform.position;
+                Vector3 direction = player.transform.position - transform.position;
                 //get angle between enemy and player
                 float angle = Vector3.Angle(direction, transform.forward);
+                float distance = Vector3.Distance(player.transform.position,transform.position );
+                if(distance<radius){
+                    Debug.Log("Player collided");
                 if(angle <  fieldOfViewAngle*0.5f){
                     Debug.Log("Player in field");
                     //now check theres nothing blocking enemys view
@@ -143,9 +140,10 @@ void awake(){
 
                     }
                 }
+    }
                 
 
-            }
-        }
+            //}
+        //}
     }
 }
