@@ -20,6 +20,9 @@ public Transform initialPos;
 GameObject player;
 int index;
 public bool playerReported; //used by other ghosts to tell the nanny they found him
+public GameManager gameManager;
+public bool forcedPatrolling; //when ghost hits light
+
 
 void awake(){
 
@@ -36,17 +39,28 @@ void awake(){
         index =0;  //which target am i at
         enemy.SetDestination(PatrolPoints[index].position);
         center = transform.position;
+        gameManager = FindObjectOfType<GameManager>();
+        //myObject.GetComponent<MyScript>().MyFunction();
+
+
+
+        //gameManager = GetComponent<GameManager>();
         
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.E)){
+            ghostForcedPatrolling();
+        }
         GameObject[] playerGameObject = GameObject.FindGameObjectsWithTag("Player");
         playerTransform = playerGameObject[0].transform;
         player = playerGameObject[0];
         //constantly checks if the player is seen and updates global variable seenPlayer
         playerSeenStatusUpdate();
+        
         //I either saw the player, or I am the nanny and someone reported it
         if(seenPlayer || (tag =="Nanny" && playerReported)){
             //I saw player, I will go to it
@@ -58,7 +72,8 @@ void awake(){
 
                 //TODO add scene cut 
                 playerTransform.position = room.position;
-                Debug.Log("yes");
+                //gameManager.
+                //Debug.Log("yes");
                 
                 
              }
@@ -72,6 +87,13 @@ void awake(){
 
 
              }
+             if(tag != "Nanny" && enemy.remainingDistance <=enemy.stoppingDistance ){
+                 // I am a ghost in sight
+                 //jumo scare
+                player.GetComponent<PlayerBehaviour>().jumpScare();
+                Debug.Log("scared");
+             }
+
              if(playerTransform.position== room.position){ //the player went to his room, reset the seenPlayer and go back to initial pos
                  //reset seenPlayer
                 //reset my position
@@ -85,13 +107,17 @@ void awake(){
         }
         else{
             //patrol
-            if(enemy.remainingDistance <=0.15f){ //less than 5 cm, I reached current goal, time to update
+            if(enemy.remainingDistance <=0.15f ){ 
+                forcedPatrolling = false;
+            //less than 5 cm, I reached current goal, time to update or I am forced to patrol
+            
 
             index++;
             if(index>=PatrolPoints.Length){
                 index =0;
 
             }
+            
             //wait a bit in place
             //WaitLookAround(0.5f);
              
@@ -102,7 +128,17 @@ void awake(){
             
         }
         
+        
     }
+
+    public void ghostForcedPatrolling(){
+        
+        forcedPatrolling = true;
+        //Debug.Log(forcedPatrolling + "FORCED PATROL");
+        
+    }
+
+
 
     private IEnumerator WaitLookAround(float waitTime)
     {
@@ -114,6 +150,10 @@ void awake(){
 
     void playerSeenStatusUpdate()
     {
+        if (forcedPatrolling){
+            seenPlayer = false;
+            return;
+        }
                 //first check distance
                 //then check is the player in my field of view?
                 //get direction from enemy to player
@@ -122,9 +162,9 @@ void awake(){
                 float angle = Vector3.Angle(direction, transform.forward);
                 float distance = Vector3.Distance(player.transform.position,transform.position );
                 if(distance<radius){
-                    Debug.Log("Player collided");
+                    //Debug.Log("Player collided");
                 if(angle <  fieldOfViewAngle*0.5f){
-                    Debug.Log("Player in field");
+                    //Debug.Log("Player in field");
                     //now check theres nothing blocking enemys view
                     RaycastHit hit;
                     if(Physics.Raycast(transform.position+Vector3.up, direction.normalized, out hit, radius)){
@@ -134,18 +174,18 @@ void awake(){
                             //you saw player
                             //lets disable players torch ? set up invisible colliders to prevent them moving?
                             seenPlayer=true;
-                            Debug.Log("Player raycast");
+                            //Debug.Log("Player raycast");
 
                         }
-                        Debug.DrawRay(transform.position, direction.normalized, Color.yellow);
-                        Debug.Log("Did Hit");
-                        Debug.Log(hit.transform.tag+"Tag");
+                        //Debug.DrawRay(transform.position, direction.normalized, Color.yellow);
+                        ///Debug.Log("Did Hit");
+                        //Debug.Log(hit.transform.tag+"Tag");
 
                     }
                     else
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            Debug.Log("Did not Hit");
+            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+            //Debug.Log("Did not Hit");
         }
                 }
     }
