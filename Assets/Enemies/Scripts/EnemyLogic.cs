@@ -53,9 +53,7 @@ void awake(){
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.E)){
-            ghostForcedPatrolling();
-        }
+        
         GameObject[] playerGameObject = GameObject.FindGameObjectsWithTag("Player");
         playerTransform = playerGameObject[0].transform;
         player = playerGameObject[0];
@@ -94,7 +92,7 @@ void awake(){
                  // I am a ghost in sight
                  //jumo scare
                 player.GetComponent<PlayerBehaviour>().jumpScare();
-                Debug.Log("scared");
+                //Debug.Log("scared");
              }
 
              if(gotCaught){ //the player went to his room, reset the seenPlayer and go back to initial pos
