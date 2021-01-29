@@ -53,9 +53,7 @@ void awake(){
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.E)){
-            ghostForcedPatrolling();
-        }
+        
         GameObject[] playerGameObject = GameObject.FindGameObjectsWithTag("Player");
         playerTransform = playerGameObject[0].transform;
         player = playerGameObject[0];
