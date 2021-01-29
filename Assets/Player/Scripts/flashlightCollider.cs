@@ -6,15 +6,14 @@ public class flashlightCollider : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
 
-        //if(other.CompareTag("Ghost"))
-        //{
-
-        //}
-        //else if (other.CompareTag("Nanny"))
-        //{
-
-        //}
+        if (other.CompareTag("Ghost"))
+        {
+            //TODO call function to partol
+        }
+        else if (other.CompareTag("Nanny"))
+        {
+            //Physics.IgnoreCollision(other, this.GetComponent<cap>);
+        }
     }
 }

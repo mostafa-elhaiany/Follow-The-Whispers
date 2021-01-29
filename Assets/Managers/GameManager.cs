@@ -33,4 +33,9 @@ public class GameManager : MonoBehaviour
         Cursor.visible = isPaused;
         Cursor.lockState = isPaused ? CursorLockMode.None: CursorLockMode.Locked;
     }
+
+    public void playerCaught()
+    {
+        //TODO restart scene here
+    }
 }

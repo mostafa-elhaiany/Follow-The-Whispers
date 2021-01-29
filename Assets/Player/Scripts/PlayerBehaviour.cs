@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     public Animator anim;
+    public CharacterController controller;
 
     public float movementSpeed = 5;
     public float runningSpeed = 5;
@@ -17,6 +18,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         anim = this.GetComponent<Animator>();
+        controller = this.GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -59,10 +61,12 @@ public class PlayerBehaviour : MonoBehaviour
         float xMovement = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         float yMovement = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         Vector3 motion = new Vector3(xMovement, 0, yMovement);
-        
+        motion = this.transform.TransformDirection(motion);
+
         //Vector3 rotation = new Vector3(0, xMovement, 0);
 
-        transform.Translate(motion);
+        controller.Move(motion);
+        //transform.Translate(motion);
         //transform.Rotate(rotation);
 
 
