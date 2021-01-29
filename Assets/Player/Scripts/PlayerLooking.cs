@@ -22,5 +22,6 @@ public class PlayerLooking : MonoBehaviour
     {
         //TODO
         //DO this
+        Debug.Log(key.name);
     }
 }
