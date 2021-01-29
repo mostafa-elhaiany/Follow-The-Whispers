@@ -12,6 +12,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public bool isRunning = false;
     public bool isCrouched = false;
+    public bool scared = false;
 
     void Start()
     {
@@ -21,8 +22,15 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        handlePlayerInput();
-        handleMovement();
+        if(!scared)
+        {
+            handlePlayerInput();
+            handleMovement();
+        }
+        else
+        {
+            anim.SetTrigger("scared");
+        }
     }
 
     void handlePlayerInput()
@@ -65,8 +73,10 @@ public class PlayerBehaviour : MonoBehaviour
 
         anim.SetBool("crouched", isCrouched);
         
+    }
 
-        
-        
+    public void jumpScare()
+    {
+        scared = true;
     }
 }
