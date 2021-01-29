@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Objective[] doors;
 
-    // Update is called once per frame
-    void Update()
+    public void keyFound(string keyname)
     {
-        
+        foreach(Objective door in doors)
+        {
+            if(keyname.Contains(door.requiredKey))
+            {
+                //ToDo make the door interactable here
+            }
+        }
     }
+    
 }

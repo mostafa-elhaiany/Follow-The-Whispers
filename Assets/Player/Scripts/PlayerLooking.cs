@@ -8,7 +8,11 @@ public class PlayerLooking : MonoBehaviour
     public Camera cam;
     public Text text;
 
-    
+    private void Start()
+    {
+        text = GameObject.FindGameObjectWithTag("KeyText").GetComponent<Text>();
+    }
+
     void Update()
     {
         text.text = "";

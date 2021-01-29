@@ -52,4 +52,9 @@ public class KeyScript : MonoBehaviour
             }
         }
     }
+
+    void OnDestroy()
+    {
+        Debug.Log(transform.name + "  destroyed!");
+    }
 }

@@ -5,10 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class Objective
 {
-
-    public string ID;
-    public GameObject target;
-    public bool isDoor;
+    
+    public GameObject door;
     public string requiredKey;
     public bool keyFound;
     
