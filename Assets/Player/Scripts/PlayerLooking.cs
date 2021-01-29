@@ -11,7 +11,16 @@ public class PlayerLooking : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hitInfo,50))
         {
-            //Debug.Log(hitInfo.transform.name);
+            if(hitInfo.transform.CompareTag("Key") || hitInfo.transform.CompareTag("ActiveKey"))
+            {
+                pickupKey(hitInfo.transform);
+            }
         }
+    }
+
+    void pickupKey(Transform key)
+    {
+        //TODO
+        //DO this
     }
 }

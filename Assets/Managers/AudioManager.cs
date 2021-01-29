@@ -9,6 +9,20 @@ public class AudioManager : MonoBehaviour
     public int background;
     public AudioMixer mixer;
 
+    [Range(-80, 20)]
+    public float masterVolume;
+    [Range(-80, 20)]
+    public float ambientVolume;
+    [Range(-80, 20)]
+    public float speechVolume;
+    [Range(-80, 20)]
+    public float effectVolume;
+    [Range(-80, 20)]
+    public float whisperVolume;
+
+
+    float whisperSounds;
+
     void Awake()
     {
         foreach (Sound s in sounds)
@@ -32,12 +46,24 @@ public class AudioManager : MonoBehaviour
 
     void Update()
     {
+
+        GameManager.mainSound = masterVolume;
+        GameManager.effectsSound = effectVolume;
+        GameManager.speechSound = speechVolume;
+        GameManager.whisperSound = whisperVolume;
+
+
         mixer.SetFloat("masterVolume", GameManager.mainSound);
         mixer.SetFloat("effectVolume", GameManager.effectsSound);
         mixer.SetFloat("speechVolume", GameManager.speechSound);
+        mixer.SetFloat("whisperVolume", GameManager.whisperSound);
 
     }
 
+    public void setWhisperSound(float val)
+    {
+        whisperVolume = val;
+    }
 
     public void play(string soundName)
     {

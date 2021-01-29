@@ -6,19 +6,11 @@ using UnityEngine;
 public class Objective
 {
 
-    public string title;
-    public string description;
-    public bool isActive;
-    public Transform target;
-    private bool isCompleted = false;
-    public GameObject[] tobeActive;
-
-    public void setAsComplete()
-    {
-        isCompleted = true;
-    }
-    public bool isComplete()
-    {
-        return isCompleted;
-    }
+    public string ID;
+    public GameObject target;
+    public bool isDoor;
+    public string requiredKey;
+    private bool keyFound = false;
+    
+   
 }

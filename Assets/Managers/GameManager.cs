@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static float mainSound;
     public static float effectsSound;
     public static float speechSound;
+    public static float whisperSound;
 
     public static bool mute;
 
