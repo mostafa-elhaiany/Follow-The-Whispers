@@ -9,6 +9,7 @@ TagManager:
   - Ghost
   - Key
   - ActiveKey
+  - KeyGenerator
   layers:
   - Default
   - TransparentFX

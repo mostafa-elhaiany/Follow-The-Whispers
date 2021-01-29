@@ -10,7 +10,7 @@ public class Objective
     public GameObject target;
     public bool isDoor;
     public string requiredKey;
-    private bool keyFound = false;
+    public bool keyFound;
     
    
 }
