@@ -92,7 +92,7 @@ void awake(){
                  // I am a ghost in sight
                  //jumo scare
                 player.GetComponent<PlayerBehaviour>().jumpScare();
-                Debug.Log("scared");
+                //Debug.Log("scared");
              }
 
              if(gotCaught){ //the player went to his room, reset the seenPlayer and go back to initial pos
