@@ -26,7 +26,7 @@ public class CameraFollowScript : MonoBehaviour
             this.transform.Rotate(yRotation, 0, 0);
 
             Quaternion rot = this.transform.rotation;
-            float eulerX = Mathf.Clamp(rot.eulerAngles.x, 25, 0);
+            float eulerX = rot.eulerAngles.x;//Mathf.Clamp(rot.eulerAngles.x, 25, 0);
             rot = Quaternion.Euler(eulerX, rot.eulerAngles.y, rot.eulerAngles.z);
             Debug.Log(rot.eulerAngles);
 

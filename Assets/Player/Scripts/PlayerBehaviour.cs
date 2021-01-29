@@ -60,7 +60,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         float xMovement = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         float yMovement = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-        Vector3 motion = new Vector3(xMovement, 0, yMovement);
+        Vector3 motion = new Vector3(xMovement, -9.8f, yMovement);
         motion = this.transform.TransformDirection(motion);
 
         //Vector3 rotation = new Vector3(0, xMovement, 0);
