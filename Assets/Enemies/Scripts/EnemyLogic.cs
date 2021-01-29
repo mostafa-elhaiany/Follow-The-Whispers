@@ -108,7 +108,8 @@ void awake(){
         }
         else{
             //patrol
-            if(enemy.remainingDistance <=0.15f ){ 
+            float distance = Vector3.Distance(this.transform.position,PatrolPoints[index].position);
+            if(distance <=1f ){ 
                 forcedPatrolling = false;
             //less than 5 cm, I reached current goal, time to update or I am forced to patrol
             
