@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - Nanny
+  - Ghost
   layers:
   - Default
   - TransparentFX

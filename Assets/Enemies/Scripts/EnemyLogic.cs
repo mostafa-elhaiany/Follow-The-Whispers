@@ -70,7 +70,6 @@ void awake(){
                  //set boolean to true
                  nanny[0].GetComponent<EnemyLogic>().playerReported=true;
 
-                
 
              }
              if(playerTransform.position== room.position){ //the player went to his room, reset the seenPlayer and go back to initial pos
@@ -128,17 +127,26 @@ void awake(){
                     Debug.Log("Player in field");
                     //now check theres nothing blocking enemys view
                     RaycastHit hit;
-                    if(Physics.Raycast(transform.position, direction.normalized, out hit, radius)){
+                    if(Physics.Raycast(transform.position+Vector3.up, direction.normalized, out hit, radius)){
 
-                        if(hit.collider.gameObject.tag == "Player"){
+
+                        if(hit.transform.tag == "Player"){
                             //you saw player
                             //lets disable players torch ? set up invisible colliders to prevent them moving?
                             seenPlayer=true;
                             Debug.Log("Player raycast");
 
                         }
+                        Debug.DrawRay(transform.position, direction.normalized, Color.yellow);
+                        Debug.Log("Did Hit");
+                        Debug.Log(hit.transform.tag+"Tag");
 
                     }
+                    else
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+            Debug.Log("Did not Hit");
+        }
                 }
     }
                 
