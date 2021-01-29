@@ -20,8 +20,9 @@ public Transform initialPos;
 GameObject player;
 int index;
 public bool playerReported; //used by other ghosts to tell the nanny they found him
-public GameManager gameManager;
+ GameManager gameManager;
 public bool forcedPatrolling; //when ghost hits light
+bool gotCaught;
 
 
 void awake(){
@@ -71,8 +72,10 @@ void awake(){
              if(enemy.remainingDistance <=0.14f && tag =="Nanny"){
 
                 //TODO add scene cut 
-                playerTransform.position = room.position;
+                //playerTransform.position = room.position;
                 //gameManager.
+                gameManager.playerCaught();
+                gotCaught = true;
                 //Debug.Log("yes");
                 
                 
@@ -94,7 +97,7 @@ void awake(){
                 Debug.Log("scared");
              }
 
-             if(playerTransform.position== room.position){ //the player went to his room, reset the seenPlayer and go back to initial pos
+             if(gotCaught){ //the player went to his room, reset the seenPlayer and go back to initial pos
                  //reset seenPlayer
                 //reset my position
                  seenPlayer = false;
