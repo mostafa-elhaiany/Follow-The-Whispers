@@ -46,6 +46,8 @@ public class PlayerLooking : MonoBehaviour
     void pickupKey(Transform key)
     {
         manager.keyCollected(key);
+        FindObjectOfType<ObjectiveManager>().keyFound(key.name);
+        manager.keyCollected(key);
         Destroy(key.gameObject);
         if (key.CompareTag("ActiveKey"))
         {
