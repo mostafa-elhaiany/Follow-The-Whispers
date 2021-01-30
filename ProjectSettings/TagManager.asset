@@ -11,6 +11,7 @@ TagManager:
   - ActiveKey
   - KeyGenerator
   - KeyText
+  - RoomKeyGenerator
   layers:
   - Default
   - TransparentFX
