@@ -25,8 +25,9 @@ public class KeyGenerator : MonoBehaviour
         Shuffle(positions);
         Shuffle(roomPositions);
         Transform pos;
-        pos = roomPositions[0].transform;
-        Remove2(0);
+        int indx = Random.Range(0, roomPositions.Length);
+        pos = roomPositions[indx].transform;
+        Remove2(indx);
         Instantiate(roomKey, pos);
 
         foreach (GameObject activeKey in activeKeys)
