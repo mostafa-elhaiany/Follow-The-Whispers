@@ -5,6 +5,10 @@ using UnityEngine;
 public class ObjectiveManager : MonoBehaviour
 {
     public Objective[] doors;
+    private void Update()
+    {
+        
+    }
     public void keyFound(string keyname)
     {
         if (doors == null)

@@ -7,6 +7,7 @@ public class KeyScript : MonoBehaviour
     Transform player;
     AudioManager audioManager;
     GameManager gameManager;
+    ObjectiveManager objectiveManager;
     public float maxDistane=10;
     public float dist;
     bool songPlayed = false;
@@ -22,34 +23,36 @@ public class KeyScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         audioManager = FindObjectOfType<AudioManager>();
         gameManager = FindObjectOfType<GameManager>();
-
+        objectiveManager = FindObjectOfType<ObjectiveManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        float minDist = 5000;
         if(transform.gameObject.CompareTag("ActiveKey"))
         {
             dist = Vector3.Distance(player.position, transform.position);
-            if(dist<=maxDistane)
+            if (dist < minDist)
+                minDist = dist;
+        }
+        if (minDist <= maxDistane)
+        {
+            float percentage = ((1 - (minDist / maxDistane)) * 100) - 80;
+            percentage = Mathf.Clamp(percentage, minSound, maxSound);
+            audioManager.setWhisperSound(percentage);
+            if (!songPlayed)
             {
-                float percentage = ((1 - (dist / maxDistane)) * 100) - 80;
-                percentage = Mathf.Clamp(percentage, minSound, maxSound);
-                audioManager.setWhisperSound(percentage);
-                if(!songPlayed)
-                {
-                    audioManager.play("whispers");
-                    songPlayed = true;
-                }
-
+                audioManager.play("whispers");
+                songPlayed = true;
             }
-            else
+        }
+        else
+        {
+            if (songPlayed)
             {
-                if(songPlayed)
-                {
-                    audioManager.stop("whispers");
-                    songPlayed = false;
-                }
+                audioManager.stop("whispers");
+                songPlayed = false;
             }
         }
     }
@@ -57,7 +60,7 @@ public class KeyScript : MonoBehaviour
     void OnDestroy()
     {
         //Debug.Log(transform.name + "  destroyed!");
-        FindObjectOfType<ObjectiveManager>().keyFound(transform.name);
+        objectiveManager.keyFound(transform.name);
         gameManager.keyCollected(transform);
     }
 }
