@@ -41,7 +41,10 @@ public class MoveObjectController : MonoBehaviour
 
 		//setup GUI style settings for user prompts
 		setupGui();
-
+				if(this.gameObject.CompareTag("Door")){
+					anim.SetBool(animBoolName+1,false);
+					}
+					
 	}
 		
 	void OnTriggerEnter(Collider other)
