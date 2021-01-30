@@ -27,24 +27,28 @@ public class MainMenu : MonoBehaviour
         howToPlay.onClick.AddListener(ShowHowToPlay);
         quit.onClick.AddListener(Quit);
         //Debug.Log(GameObject.Find("Start").name);
+        gameSceneName = "the game";
+        creditsSceneName = "Credits";
+        howToPlaySceneName = "HowToPlay";
+
         
     }
 
     public void StartGame(){
         //Debug.Log("CLICKED");
         //TODO: UNCOMMENT
-        SceneManager.LoadScene(gameSceneName);
+        //SceneManager.LoadScene(gameSceneName);
 		
 	}
     public void ShowCredits(){
         //Debug.Log("CLICKED");
-        SceneManager.LoadScene(creditsSceneName);
+        //SceneManager.LoadScene(creditsSceneName);
 		
 	}
     
     public void ShowHowToPlay(){
         //Debug.Log("CLICKED");
-        SceneManager.LoadScene(howToPlaySceneName);
+        //SceneManager.LoadScene(howToPlaySceneName);
 		
 	}
     
