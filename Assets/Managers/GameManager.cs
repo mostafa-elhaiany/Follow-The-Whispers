@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
     public void playerCaught()
     {
         Debug.Log("player is caught");
+        player.GetComponent<PlayerBehaviour>().jumpScare();
         if(--livesLeft<=0)
         {
             //SceneManager.LoadScene("");
