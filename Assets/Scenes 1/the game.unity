@@ -5385,11 +5385,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_Extents: {x: 0.25, y: 0.25, z: 0.25}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
   m_TimeToStationary: 0.5
 --- !u!1001 &164839879
 PrefabInstance:
@@ -20850,6 +20850,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.00004496798
       objectReference: {fileID: 0}
+    - target: {fileID: 1538917691192342689, guid: 40bc542b2e129004990cc56f6d3a13cf, type: 3}
+      propertyPath: m_Speed
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1538917691192342714, guid: 40bc542b2e129004990cc56f6d3a13cf, type: 3}
       propertyPath: m_Name
       value: sister
@@ -23644,6 +23648,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2295558663608527388, guid: 57bd72c7abe42964f963c0e87360bc68, type: 3}
+      propertyPath: timeToDeplete
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6233592299410121977, guid: 57bd72c7abe42964f963c0e87360bc68, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.31
@@ -39475,6 +39483,14 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4990485677279700616, guid: 5e97c1bcd9072e7488138a5a659a0ada, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -623
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990485677279700616, guid: 5e97c1bcd9072e7488138a5a659a0ada, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 319
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e97c1bcd9072e7488138a5a659a0ada, type: 3}
 --- !u!1001 &1282983500
@@ -51930,8 +51946,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 694, y: -413}
+  m_SizeDelta: {x: 254.47546, y: 35.15251}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1580956758
 MonoBehaviour:
@@ -51946,7 +51962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0.40773928, b: 0.31100032, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -51954,11 +51970,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 5a69bc59f9b5cc34fbc1d8cf73db0cd4, type: 3}
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
