@@ -34,9 +34,12 @@ public class PlayerLooking : MonoBehaviour
                     collectBattery(hitInfo.transform);
             }else if(hitInfo.transform.CompareTag("Sister"))
             {
-                text.text = "Press  E  to  unlock the lock";
-                if (Input.GetKeyDown(KeyCode.E))
-                   FindObjectOfType<sisterLogic>().Rescued();
+                if (!hitInfo.transform.GetComponent<sisterLogic>().isRescued)
+                {
+                    text.text = "Press  E  to  unlock the lock";
+                    if (Input.GetKeyDown(KeyCode.E))
+                       FindObjectOfType<sisterLogic>().Rescued();
+                }
                    
             }
         }
