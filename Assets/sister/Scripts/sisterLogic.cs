@@ -26,7 +26,9 @@ public class sisterLogic : MonoBehaviour
         sisterAnim = GetComponent<Animator>();
         
     }
-
+public void Rescued(){
+    isRescued=true;
+}
     // Update is called once per frame
     void Update()
     {
@@ -50,16 +52,16 @@ public class sisterLogic : MonoBehaviour
             
         }
 
-        if(!isRescued){
-            //keep checking check if player is close using distance from me to player
-            float distance = Vector3.Distance(transform.position, player.transform.position);
-            if(distance<= minDistanceToBeRescued){
-                //Debug.Log("yay");
-                if(Input.GetKeyDown(KeyCode.E)){ //player interacted with sister
-                    isRescued=true;
-                }
-            }
-        }
+        // if(!isRescued){
+        //     //keep checking check if player is close using distance from me to player
+        //     float distance = Vector3.Distance(transform.position, player.transform.position);
+        //     if(distance<= minDistanceToBeRescued){
+        //         Debug.Log("yay");
+        //         if(Input.GetKeyDown(KeyCode.E)){ //player interacted with sister
+        //             isRescued=true;
+        //         }
+        //     }
+        // }
 
         if(isRescued){
             //remove cuffs
