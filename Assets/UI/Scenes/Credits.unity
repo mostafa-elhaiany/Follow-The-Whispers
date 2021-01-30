@@ -632,9 +632,10 @@ MonoBehaviour:
     menu), Doctor Glitch (Game title font), & NixieOne (credits scene).\nwallpaperaccess.com\r:
     providing castle image used in main menu.\ncreazilla.com: white ghost model.\nsketchfab.com
     user yatindra for the medival torch 3D model used by the mistress.\nThanks to
-    Plutonium.software for battery model, \nGunnar Correa, aneeqayounas\nDigital
-    Ruby (Jeff Johnson) for the fire effect on the medival torch (Found on assetstore.unity.com
-    (Fire & spell effects).\nFreesound.com: dont fall asleep whisper & whisper1.wav.\n"
+    Plutonium.software for battery model, \nGunnar Correa, aneeqayounas, Blascool,
+    3Dee, Shadow Mine for amazing key models\nDigital Ruby (Jeff Johnson) for the
+    fire effect on the medival torch (Found on assetstore.unity.com (Fire & spell
+    effects).\nFreesound.com: dont fall asleep whisper & whisper1.wav.\n"
 --- !u!222 &1338635515
 CanvasRenderer:
   m_ObjectHideFlags: 0
