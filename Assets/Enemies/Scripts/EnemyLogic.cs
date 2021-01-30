@@ -66,8 +66,8 @@ void awake(){
             enemy.SetDestination(playerTransform.position+ Vector3.forward*0.2f); //adding some space just to avoid bumping into player
             //if I am the nanny and I am close to player return player to home and cut scene 
             //tag check is to prevent ghosts from returing the kid to the room
-
-             if(enemy.remainingDistance <=enemy.stoppingDistance  && tag =="Nanny"){
+            float distance = Vector3.Distance(this.transform.position,playerTransform.position);
+             if(distance <=1f  && tag =="Nanny"){
 
                 //TODO add scene cut 
                 //playerTransform.position = room.position;
