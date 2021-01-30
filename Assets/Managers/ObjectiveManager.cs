@@ -55,8 +55,7 @@ public class ObjectiveManager : MonoBehaviour
                 minDist = dist;
             }
         }
-        float maxDistane = 30;
-        Debug.Log(minDist+" "+kname);
+        float maxDistane = 18;
         
         if (minDist <= maxDistane)
         {

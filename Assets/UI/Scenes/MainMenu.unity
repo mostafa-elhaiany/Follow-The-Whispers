@@ -1056,10 +1056,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5da4bcb08022491458f8e234f35a2686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start: {fileID: 0}
-  gameSceneName: 
-  creditsSceneName: 
-  howToPlaySceneName: 
+  start: {fileID: 796586758}
+  gameSceneName: the game
+  creditsSceneName: Credits
+  howToPlaySceneName: HowToPlay
 --- !u!1 &1884033113
 GameObject:
   m_ObjectHideFlags: 0

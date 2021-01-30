@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static bool isPaused;
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     public void keyCollected(Transform key)
     {
 
-        //ToDo call UI function
+        GameObject.FindGameObjectWithTag("GameInfo").transform.GetComponent<inGameScript>().keyName = key.name;
 
         keysCollected++;
         if (key.CompareTag("ActiveKey"))
@@ -86,9 +86,9 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerBehaviour>().jumpScare();
         if(--livesLeft<=0)
         {
-            //SceneManager.LoadScene("");
-            StartCoroutine("restartScene");
+            SceneManager.LoadScene("GameOver");
         }
+        GameObject.FindGameObjectWithTag("StrikesTag").transform.GetComponent<Text>().text = "Strikes Left: " + livesLeft;
         StartCoroutine("restartScene");
         
 
