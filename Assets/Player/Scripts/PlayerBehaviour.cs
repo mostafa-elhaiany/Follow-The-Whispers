@@ -14,7 +14,7 @@ public class PlayerBehaviour : MonoBehaviour
     public bool isRunning = false;
     public bool isCrouched = false;
     public bool scared = false;
-
+    
     void Start()
     {
         anim = this.GetComponent<Animator>();
@@ -82,5 +82,11 @@ public class PlayerBehaviour : MonoBehaviour
     public void jumpScare()
     {
         scared = true;
+    }
+
+    public void restarted()
+    {
+        anim.SetTrigger("restarted");
+        scared = false;
     }
 }

@@ -86,5 +86,16 @@ public class ObjectiveManager : MonoBehaviour
             }
         }   
     }
-    
+
+    public void closeDoors()
+    {
+        GameObject DoorObject;
+        foreach (Objective door in doors)
+        {
+            DoorObject = door.door;
+            DoorObject.GetComponent<MoveObjectController>().CloseDoor();
+        }
+    }
+
+
 }

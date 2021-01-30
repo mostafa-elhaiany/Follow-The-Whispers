@@ -99,6 +99,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         player.transform.position = room.position;
         sister.transform.position = girlLockedPosition.position;
+        player.GetComponent<PlayerBehaviour>().restarted();
+        FindObjectOfType<ObjectiveManager>().closeDoors();
         //close doors 
         //add fade in anim
 
