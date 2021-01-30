@@ -5,11 +5,11 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 5
+    smallestOccluder: 1
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 43209614a85539e4e914091f60dc7473
+  m_OcclusionCullingData: {fileID: 36300000, guid: 25634ffc208e60c4eba14182b835ead9, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -8741,12 +8741,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3936047821252692242, guid: 14a850ece959e564ab55b2291f942c3b, type: 3}
       propertyPath: activeKeys.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3936047821252692242, guid: 14a850ece959e564ab55b2291f942c3b, type: 3}
       propertyPath: roomKey
       value: 
-      objectReference: {fileID: 9002168386941107469, guid: 7f3652848591ed04abf9f5d54faf4ebe, type: 3}
+      objectReference: {fileID: 7602168740042373653, guid: 6f360e5c02d4b8f4cacce948a9dee3a6, type: 3}
+    - target: {fileID: 3936047821252692242, guid: 14a850ece959e564ab55b2291f942c3b, type: 3}
+      propertyPath: activeKeys.Array.data[2]
+      value: 
+      objectReference: {fileID: 5082735887781304307, guid: d4fd68325c236db46a528bc07ef38901, type: 3}
     - target: {fileID: 3936047821909583322, guid: 14a850ece959e564ab55b2291f942c3b, type: 3}
       propertyPath: sounds.Array.size
       value: 8
@@ -15708,7 +15712,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523588690}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.22, y: -0.63651407, z: -0.75}
+  m_LocalPosition: {x: -0.22, y: -0.63651407, z: -0.334}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4000011669017004}
@@ -66832,7 +66836,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957189746}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.313, y: -0.60351443, z: -0.723}
+  m_LocalPosition: {x: 0.313, y: -0.60351443, z: -0.412}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4000014166162496}
