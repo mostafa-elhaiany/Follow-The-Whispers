@@ -7,6 +7,8 @@ public class ObjectiveManager : MonoBehaviour
     Objective[] doors;
     public void keyFound(string keyname)
     {
+        if (doors == null)
+            return;
         GameObject DoorObject;
         foreach (Objective door in doors)
         {
