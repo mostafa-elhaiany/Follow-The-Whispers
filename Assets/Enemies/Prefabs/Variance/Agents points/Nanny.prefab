@@ -11289,12 +11289,12 @@ MonoBehaviour:
   fieldOfViewAngle: 0
   room: {fileID: 0}
   PatrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3849410744315607674, guid: 31e619a4e4c562a44a524849d9c1496e, type: 3}
+  - {fileID: 4935569303987578925, guid: 8d45578582b8e974e87dfbb3f25e5afd, type: 3}
+  - {fileID: 1753171781727699205, guid: 668d5df6f07ca5a42a1406bd9aa5bef5, type: 3}
+  - {fileID: 3221076056307212637, guid: c6a67c464314c2649baabe61932c4070, type: 3}
+  - {fileID: 8138652961547069394, guid: 41c0a0b238540854cb093086e54d3e9e, type: 3}
+  - {fileID: 5270906521146714774, guid: 148c05ac345cfe945b4afe636e5ccd69, type: 3}
   seenPlayer: 0
   radius: 20
   waiting: 0

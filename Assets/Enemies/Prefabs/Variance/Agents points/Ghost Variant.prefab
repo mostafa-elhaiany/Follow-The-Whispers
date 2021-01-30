@@ -70,14 +70,14 @@ PrefabInstance:
     - target: {fileID: 7521528181427403096, guid: a43396a91d7a9814a9a65ff309af8332, type: 3}
       propertyPath: PatrolPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5496490409927912420, guid: e79a26ef1ad6ea44d9dc11fe96f2ed30, type: 3}
     - target: {fileID: 7521528181427403096, guid: a43396a91d7a9814a9a65ff309af8332, type: 3}
       propertyPath: PatrolPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1075283903602765881, guid: f0aa0a0376e0d51409f5bc57c944de51, type: 3}
     - target: {fileID: 7521528181427403098, guid: a43396a91d7a9814a9a65ff309af8332, type: 3}
       propertyPath: m_Name
-      value: Ghost
+      value: Ghost Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7521528181427403098, guid: a43396a91d7a9814a9a65ff309af8332, type: 3}
       propertyPath: m_IsActive
