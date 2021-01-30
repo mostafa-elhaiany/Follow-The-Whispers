@@ -6,7 +6,7 @@ using System;
 public class TextEffects : MonoBehaviour
 {
     //Fade time in seconds
-         public float fadeOutTime=5.0f;
+         public float fadeOutTime;
           Text text;
          public float alpha;
          bool brighten;
@@ -14,16 +14,8 @@ public class TextEffects : MonoBehaviour
     public bool flashing;
     void Start()
     {
+
         text = GetComponent<Text>();
-
-    //     alpha=0.0f;
-    //     brighten= true;
-      
-    //    Color originalColor = text.color;
-    //    originalColor.a = 0f;
-    //    text.color = originalColor;
-
-        
         if(!flashing)
             alpha =0.0f;
         else
@@ -36,37 +28,6 @@ public class TextEffects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        // if(alpha<3.0f){
-        //     Color originalColor = text.color;
-
-        //      for (float t = 0.01f; t < fadeOutTime; t += Time.deltaTime)
-        //      {
-        //          Debug.Log(alpha);
-
-        //          if(brighten){
-
-        //         originalColor.a = alpha+0.04f;
-        //          alpha = alpha+0.04f;
-
-        //          text.color = originalColor;
-        //          if(alpha>=1.5f){
-        //              brighten=false;
-        //          }
-
-        //          }
-        //          else{
-        //              if(alpha>-1.0f){
-        //              originalColor.a = alpha-0.003f;
-        //             alpha = alpha-0.003f;
-        //             text.color = originalColor;
-        //              }
-
-        //          }
-                 
-                 
-        //      }
-        // }
         
 
         
@@ -79,8 +40,8 @@ public class TextEffects : MonoBehaviour
                  //Color originalColor  = text.color;
                  if(flashing){
                      if(brighten){
-                        originalColor.a = alpha+0.4f;
-                        alpha = alpha+0.4f;
+                        originalColor.a = alpha+0.0004f;
+                        alpha = alpha+0.000004f;
                         if(Math.Abs(alpha-1.0)<0.01){
                             brighten=false;
 
@@ -89,8 +50,8 @@ public class TextEffects : MonoBehaviour
                      }
                      
                      else{
-                        originalColor.a = alpha-0.4f;
-                        alpha = alpha-0.004f;
+                        originalColor.a = alpha-0.0004f;
+                        alpha = alpha-0.000004f;
                         if(Math.Abs(alpha-0)<0.01){
                             brighten=true;
                         }
