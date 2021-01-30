@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771248353847848068, guid: f2262636275907141ac9c4aa87b9c08a, type: 3}
       propertyPath: m_Name
-      value: demon
+      value: demon Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2771248353847848068, guid: f2262636275907141ac9c4aa87b9c08a, type: 3}
       propertyPath: m_IsActive
@@ -30,11 +30,11 @@ PrefabInstance:
     - target: {fileID: 2771248353847848069, guid: f2262636275907141ac9c4aa87b9c08a, type: 3}
       propertyPath: PatrolPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2217837396857264303, guid: ae6daa5f77de3a243bc135908ec56628, type: 3}
     - target: {fileID: 2771248353847848069, guid: f2262636275907141ac9c4aa87b9c08a, type: 3}
       propertyPath: PatrolPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3796579014180759295, guid: 9591e51a08f2648498aa03f17842f1a7, type: 3}
     - target: {fileID: 2771248353847848074, guid: f2262636275907141ac9c4aa87b9c08a, type: 3}
       propertyPath: m_Speed
       value: 2

@@ -30,15 +30,15 @@ PrefabInstance:
     - target: {fileID: 196045963704337729, guid: c2c769a788d8eb848b90ce15330e2084, type: 3}
       propertyPath: PatrolPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 526706702876674406, guid: e5ba9498c9c6e6e41ba12b34ed787a6a, type: 3}
     - target: {fileID: 196045963704337729, guid: c2c769a788d8eb848b90ce15330e2084, type: 3}
       propertyPath: PatrolPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6641957022760135706, guid: 6a4d488578785774c921a0fafc091272, type: 3}
     - target: {fileID: 196045963704337729, guid: c2c769a788d8eb848b90ce15330e2084, type: 3}
       propertyPath: PatrolPoints.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2627080161900890726, guid: 0f148c0a677d5fa41824f71bf485f6e8, type: 3}
     - target: {fileID: 196045963704337730, guid: c2c769a788d8eb848b90ce15330e2084, type: 3}
       propertyPath: m_StoppingDistance
       value: 1
@@ -101,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1042890155936962918, guid: c2c769a788d8eb848b90ce15330e2084, type: 3}
       propertyPath: m_Name
-      value: warriorGhost
+      value: warriorGhost Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1042890155936962918, guid: c2c769a788d8eb848b90ce15330e2084, type: 3}
       propertyPath: m_IsActive
