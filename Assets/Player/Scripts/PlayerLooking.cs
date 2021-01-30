@@ -32,6 +32,12 @@ public class PlayerLooking : MonoBehaviour
                 text.text = "Press  E  to  collect  Batteries";
                 if (Input.GetKeyDown(KeyCode.E))
                     collectBattery(hitInfo.transform);
+            }else if(hitInfo.transform.CompareTag("Sister"))
+            {
+                text.text = "Press  E  to  unlock the lock";
+                if (Input.GetKeyDown(KeyCode.E))
+                   FindObjectOfType<sisterLogic>().Rescued();
+                   
             }
         }
 
