@@ -82,16 +82,17 @@ public class GameManager : MonoBehaviour
 
     public void playerCaught()
     {
-        
+        Debug.Log("player is caught");
         if(--livesLeft<=0)
         {
             //SceneManager.LoadScene("");
+            StartCoroutine("restartScene");
         }
         StartCoroutine("restartScene");
         
 
     }
-    IEnumerable restartScene()
+    IEnumerator restartScene()
     {
         //add fade out anim
         yield return new WaitForSeconds(1);
