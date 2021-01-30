@@ -13,6 +13,7 @@ TagManager:
   - KeyText
   - RoomKeyGenerator
   - Sister
+  - Battery
   layers:
   - Default
   - TransparentFX

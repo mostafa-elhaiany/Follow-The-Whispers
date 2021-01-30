@@ -2163,6 +2163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 5839077815914682718}
+  text: {fileID: 0}
 --- !u!1 &5839077816449511284
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,6 +2301,7 @@ GameObject:
   - component: {fileID: 5839077816934978378}
   - component: {fileID: 5839077816934978377}
   - component: {fileID: 5839077816934978376}
+  - component: {fileID: 2295558663608527388}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -2334,7 +2336,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.6
+  m_Intensity: 1
   m_Range: 70
   m_SpotAngle: 71
   m_InnerSpotAngle: 21.80208
@@ -2395,6 +2397,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfceac52e543b94a99cf1b4333582ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2295558663608527388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5839077816934978379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e910b9528985544ea9112aa29be4b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDeplete: 30
+  depleteAmmount: 0.1
 --- !u!1 &5945266857382701176
 GameObject:
   m_ObjectHideFlags: 0

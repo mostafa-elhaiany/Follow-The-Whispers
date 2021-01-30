@@ -13,10 +13,40 @@ public class GameManager : MonoBehaviour
 
     public static bool mute;
 
+
+    ///GAME ATTRIBUTES
+    float batteryPower=0.4f;
+    int livesLeft;
+    int keysCollected;
+    int activeKeysCollected;
+
     //void Start()
     //{
 
     //}
+    public float getBatteryPower()
+    {
+        return batteryPower;
+    }
+    public void depletePower(float val)
+    {
+        batteryPower -= val;
+    }
+
+
+    public void refilBatteries()
+    {
+        batteryPower = 1;
+    }
+
+
+    public void keyCollected(Transform key)
+    {
+        keysCollected++;
+        if (key.CompareTag("ActiveKey"))
+            activeKeysCollected++;
+    }
+
 
     void Update()
     {
@@ -37,6 +67,12 @@ public class GameManager : MonoBehaviour
 
     public void playerCaught()
     {
+        
+        if(--livesLeft<=0)
+        {
+            //GAME OVER LOGIC HERE
+        }
         //TODO restart scene here
+
     }
 }
