@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         sister = GameObject.FindGameObjectWithTag("Sister").transform;
+        livesLeft = 3;
+        GameObject.FindGameObjectWithTag("StrikesTag").transform.GetComponent<Text>().text = "Strikes Left: " + livesLeft;
+
     }
 
 
