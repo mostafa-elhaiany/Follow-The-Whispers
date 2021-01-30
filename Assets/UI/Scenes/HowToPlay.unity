@@ -703,7 +703,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PRESS ECS TO RETURN TO THE MAIN MENU
+  m_Text: PRESS ESC TO RETURN TO THE MAIN MENU
 --- !u!222 &1904552651
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -786,9 +786,9 @@ MonoBehaviour:
     you feel unsettled by the shadow-like figures. You are particularly uneasy about
     one tall woman who walks around carrying an inferno in her left hand. You hear
     whispers and a desperate cry for help. You should leave...but something is missing.\n\nUse
-    Arrow keys to move \nUse left control to crouch.\nHold left shift + forward arrow
-    to run.\nUse the mouse pad to look around\nPress E for interacting with the surroundings\nPress
-    Z to toggle collectibles view\n"
+    W,A,S,D keys to move \nUse left control to crouch.\nHold left shift to run.\nUse
+    the mouse to look around.\nClick LMB to interact with doors.\nPress E to collect
+    items\nPress Z to toggle collectibles view.\n"
 --- !u!222 &1996477188
 CanvasRenderer:
   m_ObjectHideFlags: 0
