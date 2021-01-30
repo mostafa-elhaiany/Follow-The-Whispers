@@ -44,6 +44,8 @@ public class ObjectiveManager : MonoBehaviour
         float minDist = 5000;
         foreach(GameObject key in keys)
         {
+            if (key == null)
+                return;
             dist = Vector3.Distance(player.position, key.transform.position);
             if (dist <= minDist)
                 minDist = dist;
@@ -80,6 +82,7 @@ public class ObjectiveManager : MonoBehaviour
             if(keyname.Contains(door.requiredKey))
             {
                 //ToDo make the door interactable here
+                Debug.Log(keyname);
                 DoorObject = door.door;
                 DoorObject.GetComponent<MoveObjectController>().setKey(true);
                 door.keyFound = true;
