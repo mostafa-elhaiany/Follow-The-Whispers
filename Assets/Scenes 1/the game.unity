@@ -8909,7 +8909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3936047821909583322, guid: 14a850ece959e564ab55b2291f942c3b, type: 3}
       propertyPath: ambientVolume
-      value: -34
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 3936047821909583324, guid: 14a850ece959e564ab55b2291f942c3b, type: 3}
       propertyPath: room
