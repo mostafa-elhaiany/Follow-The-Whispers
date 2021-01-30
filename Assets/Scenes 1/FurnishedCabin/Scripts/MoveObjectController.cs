@@ -42,7 +42,7 @@ public class MoveObjectController : MonoBehaviour
 		//setup GUI style settings for user prompts
 		setupGui();
 				if(this.gameObject.CompareTag("Door")){
-					anim.SetBool(animBoolName+1,false);
+					CloseDoor();
 					}
 					
 	}
@@ -68,6 +68,9 @@ public class MoveObjectController : MonoBehaviour
 
 	public void setKey(bool k){
 		key=k;
+	}
+	public void CloseDoor(){
+		anim.SetBool(animBoolName+1,false);
 	}
 
 	void Update()
