@@ -3,7 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fire
+  - Nanny
+  - Ghost
+  - Key
+  - ActiveKey
+  - KeyGenerator
+  - KeyText
+  - RoomKeyGenerator
+  - Sister
+  - Battery
+  - Door
+  - GameInfo
+  - StrikesTag
   layers:
   - Default
   - TransparentFX
@@ -13,7 +26,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Inventory
   - 
   - 
   - 
