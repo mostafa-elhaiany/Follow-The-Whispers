@@ -37,18 +37,18 @@ public class MainMenu : MonoBehaviour
     public void StartGame(){
         //Debug.Log("CLICKED");
         //TODO: UNCOMMENT
-        //SceneManager.LoadScene(gameSceneName);
+        SceneManager.LoadScene(gameSceneName);
 		
 	}
     public void ShowCredits(){
         //Debug.Log("CLICKED");
-        //SceneManager.LoadScene(creditsSceneName);
+        SceneManager.LoadScene(creditsSceneName);
 		
 	}
     
     public void ShowHowToPlay(){
         //Debug.Log("CLICKED");
-        //SceneManager.LoadScene(howToPlaySceneName);
+        SceneManager.LoadScene(howToPlaySceneName);
 		
 	}
     

@@ -82,6 +82,7 @@ public class PlayerBehaviour : MonoBehaviour
     public void jumpScare()
     {
         scared = true;
+        FindObjectOfType<GameManager>().playerCaught();
     }
 
     public void restarted()

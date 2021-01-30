@@ -86,8 +86,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerBehaviour>().jumpScare();
         if(--livesLeft<=0)
         {
-            //SceneManager.LoadScene("");
-            StartCoroutine("restartScene");
+            SceneManager.LoadScene("GameOver");
         }
         StartCoroutine("restartScene");
         

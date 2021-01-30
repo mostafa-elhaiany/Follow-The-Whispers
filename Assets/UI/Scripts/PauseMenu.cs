@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -25,12 +26,12 @@ public class PauseMenu : MonoBehaviour
 
     void restartOnClick()
     {
-        //TODO add scene manager
+        SceneManager.LoadScene("the game");
     }
 
     void menuOnClick()
     {
-        //TODO add scene manager
+        SceneManager.LoadScene("MainMenu");
     }
 
     // Update is called once per frame
