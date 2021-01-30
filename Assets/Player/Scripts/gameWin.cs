@@ -6,6 +6,7 @@ public class gameWin : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("Credits");
+        if(other.CompareTag("Sister"))
+            SceneManager.LoadScene("Credits");
     }
 }
