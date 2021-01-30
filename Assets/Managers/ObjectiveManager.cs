@@ -43,15 +43,21 @@ public class ObjectiveManager : MonoBehaviour
         }
 
         float minDist = 5000;
+        string kname = "";
         foreach(GameObject key in keys)
         {
             if (key == null)
                 continue;
             dist = Vector3.Distance(player.position, key.transform.position);
             if (dist <= minDist)
+            {
+                kname = key.transform.name;  
                 minDist = dist;
+            }
         }
         float maxDistane = 30;
+        Debug.Log(minDist+" "+kname);
+        
         if (minDist <= maxDistane)
         {
             float percentage = ((1 - (minDist / maxDistane)) * 100) - 80;
@@ -88,7 +94,12 @@ public class ObjectiveManager : MonoBehaviour
                 DoorObject.GetComponent<MoveObjectController>().setKey(true);
                 door.keyFound = true;
             }
-        }   
+        }
+        if (songPlayed)
+        {
+            audioManager.stop("whispers");
+            songPlayed = false;
+        }
     }
 
     public void closeDoors()

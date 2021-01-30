@@ -26,8 +26,7 @@ public class CameraFollowScript : MonoBehaviour
             if (value > 300)
                 value -= 359;
             float eulerX = value;
-
-            Debug.Log(value);
+            
             if (value < min)
                 eulerX = min;
             else if (value > max)

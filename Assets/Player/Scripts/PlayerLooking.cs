@@ -49,9 +49,5 @@ public class PlayerLooking : MonoBehaviour
         FindObjectOfType<ObjectiveManager>().keyFound(key.name);
         manager.keyCollected(key);
         Destroy(key.gameObject);
-        if (key.CompareTag("ActiveKey"))
-        {
-            FindObjectOfType<AudioManager>().stop("whispers");
-        }
     }
 }
