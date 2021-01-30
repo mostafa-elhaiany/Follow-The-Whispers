@@ -5,47 +5,58 @@ using UnityEngine;
 public class KeyGenerator : MonoBehaviour
 {
     public GameObject[] positions;
+    public GameObject[] roomPositions;
 
     public GameObject[] activeKeys;
+    public GameObject roomKey;
 
     public GameObject[] otherKeys;
 
     void Start()
     {
         positions = GameObject.FindGameObjectsWithTag("KeyGenerator");
+        roomPositions = GameObject.FindGameObjectsWithTag("RoomKeyGenerator");
 
-        if (activeKeys.Length + otherKeys.Length > positions.Length)
+        if ( activeKeys.Length + otherKeys.Length > positions.Length)
         {
             Debug.LogError("number of key positions less than number of available keys please add more generators");
         }
 
         Shuffle(positions);
+        Shuffle(roomPositions);
+        Transform pos;
+        pos = roomPositions[0].transform;
+        Remove2(0);
+        Instantiate(roomKey, pos);
 
         foreach (GameObject activeKey in activeKeys)
         {
-            Transform pos = positions[0].transform;
-            Remove(0);
+            pos = positions[0].transform;
+            Remove1(0);
             Instantiate(activeKey, pos);
         }
 
         Shuffle(positions);
         foreach (GameObject key in otherKeys)
         {
-            Transform pos = positions[0].transform;
-            Remove(0);
+            pos = positions[0].transform;
+            Remove1(0);
             Instantiate(key, pos);
         }
 
 
-        foreach(GameObject pos in positions)
+        foreach(GameObject obj in positions)
         {
-            Destroy(pos);
+            Destroy(obj);
         }
-
+        foreach (GameObject obj in roomPositions)
+        {
+            Destroy(obj);
+        }
 
     }
 
-    void Remove(int index)
+    void Remove1(int index)
     {
         GameObject[] newPositions = new GameObject[positions.Length - 1];
         int pos = 0;
@@ -58,6 +69,22 @@ public class KeyGenerator : MonoBehaviour
             }
         }
         positions = newPositions;
+    }
+
+
+    void Remove2(int index)
+    {
+        GameObject[] newPositions = new GameObject[roomPositions.Length - 1];
+        int pos = 0;
+        for (int i = 0; i < roomPositions.Length; i++)
+        {
+            if (i != index)
+            {
+                newPositions[pos] = roomPositions[i];
+                pos++;
+            }
+        }
+        roomPositions = newPositions;
     }
 
     void Shuffle(GameObject[] array)
