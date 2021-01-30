@@ -14,6 +14,10 @@ public class GameOverMenu : MonoBehaviour
     
     void Start()
     {
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         mainMenu = GameObject.Find("MainMenu").GetComponent<Button>();
         
         quit = GameObject.Find("Quit").GetComponent<Button>();
