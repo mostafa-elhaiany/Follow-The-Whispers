@@ -89,9 +89,11 @@ void awake(){
 
              }
              if(tag != "Nanny" && enemy.remainingDistance <=enemy.stoppingDistance ){
-                 // I am a ghost in sight
-                 //jumo scare
-                player.GetComponent<PlayerBehaviour>().jumpScare();
+                // I am a ghost in sight
+                //jumo scare
+                //player.GetComponent<PlayerBehaviour>().jumpScare();
+                gameManager.playerCaught();
+
                 Debug.Log("scared");
              }
 
