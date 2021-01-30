@@ -103,10 +103,16 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator restartScene()
     {
+        GameObject[] ghosts = GameObject.FindGameObjectsWithTag("Ghost");
         //add fade out anim
         yield return new WaitForSeconds(1);
         player.transform.position = room.position;
         sister.transform.position = girlLockedPosition.position;
+        foreach (GameObject ghost in ghosts)
+        {
+            ghost.GetComponent<EnemyLogic>().ghostForcedPatrolling();
+        }
+        GameObject.FindGameObjectWithTag("Nanny").GetComponent<EnemyLogic>().ghostForcedPatrolling();
         yield return new WaitForSeconds(1);
         player.GetComponent<PlayerBehaviour>().restarted();
         FindObjectOfType<ObjectiveManager>().closeDoors();
