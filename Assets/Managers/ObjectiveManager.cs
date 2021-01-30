@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
 {
-    Objective[] doors;
+    public Objective[] doors;
     public void keyFound(string keyname)
     {
         if (doors == null)
