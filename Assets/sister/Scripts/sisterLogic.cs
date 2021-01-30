@@ -17,6 +17,7 @@ public class sisterLogic : MonoBehaviour
     bool wasRunning;
     bool wasWalking;
 
+    float timer = 15;
     
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,31 @@ public void Rescued(){
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
+        if(timer<=0)
+        {
+            timer = 15;
+            int rand = Random.Range(0, 3);
+            AudioManager aManager = FindObjectOfType<AudioManager>();
+            switch(rand)
+            {
+                case 0:
+                    aManager.play("girl1");
+                    break;
+                case 1:
+                    aManager.play("girl2");
+                    break;
+                case 2:
+                    aManager.play("girl3");
+                    break;
+                case 3:
+                    aManager.play("girl4");
+                    break;
+            }
+
+        }
+
+
         GameObject[] playerGameObject = GameObject.FindGameObjectsWithTag("Player");
         player = playerGameObject[0];
 

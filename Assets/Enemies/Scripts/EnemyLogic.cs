@@ -140,6 +140,17 @@ void awake(){
         
     }
 
+    public void restart()
+    {
+        seenPlayer = false;
+        playerReported = false;
+        enemy.SetDestination(initialPos.position);
+        GameObject sister = GameObject.FindGameObjectsWithTag("Sister")[0];
+        sister.GetComponent<sisterLogic>().isRescued = false;
+        //Debug.Log("GOT CAUGHT NEEM");
+        gotCaught = false;
+    }
+
     public void ghostForcedPatrolling(){
         
         forcedPatrolling = true;
