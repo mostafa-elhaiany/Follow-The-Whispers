@@ -35,7 +35,7 @@ void awake(){
     void Start()
     {
         
-        fieldOfViewAngle=110f;
+        fieldOfViewAngle=50;
         enemy = GetComponent<UnityEngine.AI.NavMeshAgent>(); //gebt component mn el game object that is assigned
         index =0;  //which target am i at
         enemy.SetDestination(PatrolPoints[index].position);

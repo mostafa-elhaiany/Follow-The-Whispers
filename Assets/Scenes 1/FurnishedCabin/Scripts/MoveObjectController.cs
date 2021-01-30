@@ -110,7 +110,7 @@ public class MoveObjectController : MonoBehaviour
 						msg = getGuiMsg(!isOpen);
 					}else if(Input.GetButtonDown("Fire1"))
                     {
-						Debug.Log("Can't be opened");
+						//Debug.Log("Can't be opened");
                         FindObjectOfType<AudioManager>().play("doorLocked");
                     }
 				}

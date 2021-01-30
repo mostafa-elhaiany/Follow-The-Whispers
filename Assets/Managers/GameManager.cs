@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         if(!restarted)
         {
             restarted = true;
-            Debug.Log("player is caught");
+            //Debug.Log("player is caught");
             player.GetComponent<PlayerBehaviour>().jumpScare();
             if(--livesLeft<=0)
             {

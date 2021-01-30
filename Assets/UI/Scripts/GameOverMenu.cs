@@ -33,7 +33,7 @@ public class GameOverMenu : MonoBehaviour
     public void ShowMainMenu(){
         Debug.Log("CLICKED");
         //TODO: UNCOMMENT
-        //SceneManager.LoadScene(MainMenuSceneName);
+        SceneManager.LoadScene(MainMenuSceneName);
 		
 	}
     public void Quit(){
