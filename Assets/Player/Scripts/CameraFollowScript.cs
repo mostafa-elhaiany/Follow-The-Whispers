@@ -19,8 +19,23 @@ public class CameraFollowScript : MonoBehaviour
             this.transform.Rotate(yRotation, 0, 0);
 
             Quaternion rot = this.transform.rotation;
-            float eulerX = Mathf.Clamp(rot.eulerAngles.x, 5, 30);
-            rot = Quaternion.Euler(eulerX, transform.localEulerAngles.y, transform.localEulerAngles.z);
+            //float eulerX = Mathf.Clamp(rot.eulerAngles.x, -2, 35);
+            float min = -4;
+            float max = 30;
+            float value = rot.eulerAngles.x;
+            if (value > 300)
+                value -= 359;
+            float eulerX = value;
+
+            Debug.Log(value);
+            if (value < min)
+                eulerX = min;
+            else if (value > max)
+                eulerX = max;
+
+
+            //rot = Quaternion.Euler(eulerX, transform.localEulerAngles.y, transform.localEulerAngles.z);
+            rot = Quaternion.Euler(eulerX,3.2f, 0);
             transform.localRotation = rot;
             
         }
