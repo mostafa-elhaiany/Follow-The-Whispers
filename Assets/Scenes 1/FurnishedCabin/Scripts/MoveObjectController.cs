@@ -15,6 +15,7 @@ public class MoveObjectController : MonoBehaviour
 	private bool showInteractMsg;
 	private GUIStyle guiStyle;
 	private string msg;
+	bool key;
 
 	private int rayLayerMask; 
 
@@ -62,7 +63,9 @@ public class MoveObjectController : MonoBehaviour
 		}
 	}
 
-
+	public void setKey(bool k){
+		key=k;
+	}
 
 	void Update()
 	{		
@@ -82,21 +85,25 @@ public class MoveObjectController : MonoBehaviour
 					return;
 				}
 					
-				if (moveableObject != null)		//hit object must have MoveableDraw script attached
+				if (moveableObject != null )		//hit object must have MoveableDraw script attached
 				{
 					showInteractMsg = true;
 					string animBoolNameNum = animBoolName + moveableObject.objectNumber.ToString();
-					Debug.Log(animBoolNameNum);
 					bool isOpen = anim.GetBool(animBoolNameNum);	//need current state for message.
 					msg = getGuiMsg(isOpen);
-
-					if (Input.GetKeyUp(KeyCode.E) || Input.GetButtonDown("Fire1"))
+					if(this.gameObject.CompareTag("Door")){
+						//does the player have the key?
+					}
+					else{
+						key=true;
+					}
+					if (Input.GetButtonDown("Fire1")&& key)
 					{
 						anim.enabled = true;
 						anim.SetBool(animBoolNameNum,!isOpen);
 						msg = getGuiMsg(!isOpen);
-					}
-
+					}else if(Input.GetButtonDown("Fire1"))
+							Debug.Log("Can't be opened");
 				}
 			}
 			else
@@ -153,7 +160,7 @@ public class MoveObjectController : MonoBehaviour
 		guiStyle.fontSize = 16;
 		guiStyle.fontStyle = FontStyle.Bold;
 		guiStyle.normal.textColor = Color.white;
-		msg = "Press E/Fire1 to Open";
+		msg = "Click LMB to Open";
 	}
 
 	private string getGuiMsg(bool isOpen)
@@ -161,10 +168,10 @@ public class MoveObjectController : MonoBehaviour
 		string rtnVal;
 		if (isOpen)
 		{
-			rtnVal = "Press E/Fire1 to Close";
+			rtnVal = "Click LMB to Close";
 		}else
 		{
-			rtnVal = "Press E/Fire1 to Open";
+			rtnVal = "Click LMB to Open";
 		}
 
 		return rtnVal;
