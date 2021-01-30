@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,16 +15,27 @@ public class GameManager : MonoBehaviour
     public static bool mute;
 
 
+
     ///GAME ATTRIBUTES
+
+    public Transform room;
+    Transform player;
+
+    public Transform girlLockedPosition;
+    Transform sister;
+
     float batteryPower=0.4f;
     int livesLeft;
     int keysCollected;
     int activeKeysCollected;
 
-    //void Start()
-    //{
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        sister = GameObject.FindGameObjectWithTag("Sister").transform;
+    }
 
-    //}
+
     public float getBatteryPower()
     {
         return batteryPower;
@@ -42,6 +54,9 @@ public class GameManager : MonoBehaviour
 
     public void keyCollected(Transform key)
     {
+
+        //ToDo call UI function
+
         keysCollected++;
         if (key.CompareTag("ActiveKey"))
             activeKeysCollected++;
@@ -70,9 +85,20 @@ public class GameManager : MonoBehaviour
         
         if(--livesLeft<=0)
         {
-            //GAME OVER LOGIC HERE
+            //SceneManager.LoadScene("");
         }
-        //TODO restart scene here
+        StartCoroutine("restartScene");
+        
+
+    }
+    IEnumerable restartScene()
+    {
+        //add fade out anim
+        yield return new WaitForSeconds(1);
+        player.transform.position = room.position;
+        sister.transform.position = girlLockedPosition.position;
+        //close doors 
+        //add fade in anim
 
     }
 }

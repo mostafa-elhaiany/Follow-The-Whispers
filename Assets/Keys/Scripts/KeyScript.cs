@@ -18,6 +18,7 @@ public class KeyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        maxDistane = 30;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         audioManager = FindObjectOfType<AudioManager>();
         gameManager = FindObjectOfType<GameManager>();
@@ -55,6 +56,8 @@ public class KeyScript : MonoBehaviour
 
     void OnDestroy()
     {
-        Debug.Log(transform.name + "  destroyed!");
+        //Debug.Log(transform.name + "  destroyed!");
+        FindObjectOfType<ObjectiveManager>().keyFound(transform.name);
+        gameManager.keyCollected(transform);
     }
 }
