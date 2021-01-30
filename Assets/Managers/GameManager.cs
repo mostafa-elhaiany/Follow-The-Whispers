@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public static bool mute;
 
+    bool restarted = false;
 
 
     ///GAME ATTRIBUTES
@@ -85,14 +86,18 @@ public class GameManager : MonoBehaviour
 
     public void playerCaught()
     {
-        Debug.Log("player is caught");
-        player.GetComponent<PlayerBehaviour>().jumpScare();
-        if(--livesLeft<=0)
+        if(!restarted)
         {
-            SceneManager.LoadScene("GameOver");
+            restarted = true;
+            Debug.Log("player is caught");
+            player.GetComponent<PlayerBehaviour>().jumpScare();
+            if(--livesLeft<=0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+            GameObject.FindGameObjectWithTag("StrikesTag").transform.GetComponent<Text>().text = "Strikes Left: " + livesLeft;
+            StartCoroutine("restartScene");
         }
-        GameObject.FindGameObjectWithTag("StrikesTag").transform.GetComponent<Text>().text = "Strikes Left: " + livesLeft;
-        StartCoroutine("restartScene");
         
 
     }
@@ -105,6 +110,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         player.GetComponent<PlayerBehaviour>().restarted();
         FindObjectOfType<ObjectiveManager>().closeDoors();
+        restarted = false;
         //close doors 
         //add fade in anim
 
