@@ -22,7 +22,7 @@ int index;
 public bool playerReported; //used by other ghosts to tell the nanny they found him
  GameManager gameManager;
 public bool forcedPatrolling; //when ghost hits light
-bool gotCaught;
+public bool gotCaught;
 
 
 void awake(){
@@ -67,7 +67,7 @@ void awake(){
             //if I am the nanny and I am close to player return player to home and cut scene 
             //tag check is to prevent ghosts from returing the kid to the room
 
-             if(enemy.remainingDistance <=0.14f && tag =="Nanny"){
+             if(enemy.remainingDistance <=enemy.stoppingDistance  && tag =="Nanny"){
 
                 //TODO add scene cut 
                 //playerTransform.position = room.position;
@@ -80,7 +80,7 @@ void awake(){
              }
             //ghosts make the kid scream and the nanny finds him
             //If i am not the nanny, access the nannys script and set playerReported to true
-             if(tag != "Nanny"){
+             if(tag != "Nanny" && !forcedPatrolling && enemy.remainingDistance <=enemy.stoppingDistance ){
                  GameObject[] nanny = GameObject.FindGameObjectsWithTag("Nanny");
                  //there is only one nanny, access first index only
                  //set boolean to true
@@ -92,7 +92,7 @@ void awake(){
                  // I am a ghost in sight
                  //jumo scare
                 player.GetComponent<PlayerBehaviour>().jumpScare();
-                //Debug.Log("scared");
+                Debug.Log("scared");
              }
 
              if(gotCaught){ //the player went to his room, reset the seenPlayer and go back to initial pos
@@ -101,6 +101,10 @@ void awake(){
                  seenPlayer = false;
                  playerReported=false;
                  enemy.SetDestination(initialPos.position);
+                 GameObject sister = GameObject.FindGameObjectsWithTag("Sister")[0];
+                 sister.GetComponent<sisterLogic>().isRescued= false;
+                 //Debug.Log("GOT CAUGHT NEEM");
+                 gotCaught = false;
              }
              
              
@@ -122,6 +126,7 @@ void awake(){
             
             //wait a bit in place
             //WaitLookAround(0.5f);
+           
              
             
         } 
