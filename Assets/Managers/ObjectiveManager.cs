@@ -41,11 +41,12 @@ public class ObjectiveManager : MonoBehaviour
             }
             return;
         }
+
         float minDist = 5000;
         foreach(GameObject key in keys)
         {
             if (key == null)
-                return;
+                continue;
             dist = Vector3.Distance(player.position, key.transform.position);
             if (dist <= minDist)
                 minDist = dist;

@@ -32,16 +32,18 @@ public class KeyGenerator : MonoBehaviour
 
         foreach (GameObject activeKey in activeKeys)
         {
-            pos = positions[0].transform;
-            Remove1(0);
+            indx = Random.Range(0, positions.Length);
+            pos = positions[indx].transform;
+            Remove1(indx);
             Instantiate(activeKey, pos);
         }
 
         Shuffle(positions);
         foreach (GameObject key in otherKeys)
         {
-            pos = positions[0].transform;
-            Remove1(0);
+            indx = Random.Range(0, positions.Length);
+            pos = positions[indx].transform;
+            Remove1(indx);
             Instantiate(key, pos);
         }
 
