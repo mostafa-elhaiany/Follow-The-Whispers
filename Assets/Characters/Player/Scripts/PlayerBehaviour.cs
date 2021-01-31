@@ -87,6 +87,7 @@ public class PlayerBehaviour : MonoBehaviour
     public void restarted()
     {
         anim.SetTrigger("restarted");
+        anim.ResetTrigger("scared");
         scared = false;
     }
 }

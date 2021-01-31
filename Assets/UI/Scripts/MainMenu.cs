@@ -56,6 +56,7 @@ public class MainMenu : MonoBehaviour
         {
             howToPlayPannel.SetActive(false);
             CreditsPannel.SetActive(false);
+            loading.SetActive(false);
         }
     }
 

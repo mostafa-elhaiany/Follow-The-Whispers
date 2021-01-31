@@ -587,6 +587,52 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1839772934}
     m_Modifications:
+    - target: {fileID: 8403488945557857156, guid: c33f42a2a518cf940bfdba2eef554bed, type: 3}
+      propertyPath: m_Text
+      value: "It is dark, you hate the darkness. \nAs you are navagating the place,
+        you feel unsettled by the shadow-like figures. You are particularly uneasy
+        about one tall woman who walks around carrying an inferno in her left hand.
+        You hear whispers and a desperate cry for help. You should leave...but something
+        is missing.\n\nUse W,A,S,D keys to move \nUse left control to crouch.\nHold
+        left shift to run.\nUse the mouse to look around.\nClick LMB to interact
+        with doors.\nPress E to collect items\nPress Z to toggle inventory.\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403488945637104205, guid: c33f42a2a518cf940bfdba2eef554bed, type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403488945637104205, guid: c33f42a2a518cf940bfdba2eef554bed, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403488945637104206, guid: c33f42a2a518cf940bfdba2eef554bed, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 251
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403488945842595027, guid: c33f42a2a518cf940bfdba2eef554bed, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403488945842595027, guid: c33f42a2a518cf940bfdba2eef554bed, type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403488945842595027, guid: c33f42a2a518cf940bfdba2eef554bed, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403488945842595028, guid: c33f42a2a518cf940bfdba2eef554bed, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403488945842595028, guid: c33f42a2a518cf940bfdba2eef554bed, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403488945842595029, guid: c33f42a2a518cf940bfdba2eef554bed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8403488946452431866, guid: c33f42a2a518cf940bfdba2eef554bed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

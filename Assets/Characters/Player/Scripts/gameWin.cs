@@ -7,6 +7,11 @@ public class gameWin : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Sister"))
-            SceneManager.LoadScene("Credits");
+        {
+            if(SceneManager.GetActiveScene().Equals("Level1"))
+                SceneManager.LoadScene("Level2");
+            else
+                SceneManager.LoadScene("Credits");
+        }
     }
 }
