@@ -12,15 +12,20 @@ public class MainMenu : MonoBehaviour
     Button howToPlay;
     Button credits;
     Button quit;
-    public GameObject loading;     
+    public GameObject loading;
+    public GameObject howToPlayPannel;
+    public GameObject CreditsPannel;
+
     public string gameSceneName;
-    public string creditsSceneName;
-    public string howToPlaySceneName;
     
     void Start()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        howToPlayPannel.SetActive(false);
+        CreditsPannel.SetActive(false);
+
 
         start = GameObject.Find("Start").GetComponent<Button>();
         howToPlay = GameObject.Find("HowTo").GetComponent<Button>();
@@ -32,8 +37,7 @@ public class MainMenu : MonoBehaviour
         howToPlay.onClick.AddListener(ShowHowToPlay);
         quit.onClick.AddListener(Quit);
         gameSceneName = "Level1"; //ToDo add choose level scene
-        creditsSceneName = "Credits";
-        howToPlaySceneName = "HowToPlay";
+
 
         loading.SetActive(false);
         start.gameObject.SetActive(true);
@@ -41,8 +45,15 @@ public class MainMenu : MonoBehaviour
         credits.gameObject.SetActive(true);
         quit.gameObject.SetActive(true);
 
+    }
 
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            howToPlayPannel.SetActive(false);
+            CreditsPannel.SetActive(false);
+        }
     }
 
     public void StartGame(){
@@ -58,17 +69,13 @@ public class MainMenu : MonoBehaviour
 		
 	}
     public void ShowCredits(){
-        //Debug.Log("CLICKED");
-        SceneManager.LoadScene(creditsSceneName);
-		
-	}
+        CreditsPannel.SetActive(true);
+    }
     
     public void ShowHowToPlay(){
-        //Debug.Log("CLICKED");
-        SceneManager.LoadScene(howToPlaySceneName);
-		
-	}
-    
+        howToPlayPannel.SetActive(true);
+    }
+
     public void Quit(){
         Application.Quit();
 		
