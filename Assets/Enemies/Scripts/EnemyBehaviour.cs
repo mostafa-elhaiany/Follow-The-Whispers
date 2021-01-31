@@ -79,7 +79,7 @@ public class EnemyBehaviour : MonoBehaviour
     void handleLockedDoors()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + (Vector3.up * 2), transform.forward, out hit, radius))
+        if (Physics.Raycast(transform.position-transform.forward + (Vector3.up * 2), transform.forward, out hit, radius))
         {
             if (hit.transform.tag == "Door")
             {
