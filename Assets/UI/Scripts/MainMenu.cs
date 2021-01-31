@@ -31,8 +31,7 @@ public class MainMenu : MonoBehaviour
         credits.onClick.AddListener(ShowCredits);
         howToPlay.onClick.AddListener(ShowHowToPlay);
         quit.onClick.AddListener(Quit);
-        //Debug.Log(GameObject.Find("Start").name);
-        gameSceneName = "the game";
+        gameSceneName = "Level1"; //ToDo add choose level scene
         creditsSceneName = "Credits";
         howToPlaySceneName = "HowToPlay";
 

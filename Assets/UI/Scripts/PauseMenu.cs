@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour
 
     void restartOnClick()
     {
-        SceneManager.LoadScene("the game");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void menuOnClick()
