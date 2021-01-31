@@ -18,6 +18,8 @@ public class sisterLogic : MonoBehaviour
     bool wasWalking;
 
     float timer = 15;
+    float timeApart = 20;
+    bool startCountDown = false;
     
     // Start is called before the first frame update
     void Start()
@@ -36,7 +38,7 @@ public void Rescued(){
         timer -= Time.deltaTime;
         if(timer<=0)
         {
-            timer = 15;
+            timer = 10;
             if(!isRescued)
             {
                 int rand = Random.Range(0, 3);
@@ -60,12 +62,23 @@ public void Rescued(){
 
         }
 
+        if(!isRescued && startCountDown)
+        {
+            timeApart -= Time.deltaTime;
+            if(timeApart==0)
+            {
+                FindObjectOfType<GameManager>().playerCaught();
+                startCountDown = false;
+                timeApart = 20;
+            }
+        }
+
 
         player = GameObject.FindGameObjectWithTag("Player");
 
         if (!isRescued && cuffs.activeSelf==false){
-             cuffs.SetActive(true);
              transform.position = initialTransform;
+             cuffs.SetActive(true);
              sister.enabled=false;
         }
 
@@ -98,10 +111,19 @@ public void Rescued(){
             }
 
             float dist = Vector3.Distance(sister.transform.position, player.transform.position);
-            if (dist>=20)
+            if (dist>=10)
             {
                 isRescued = false;
-
+                cuffs.SetActive(true);
+                sister.enabled = false;
+                startCountDown = true;
+                AudioManager aManager = FindObjectOfType<AudioManager>();
+                aManager.play("girl1");
+            }
+            else
+            {
+                startCountDown = false;
+                timeApart = 20;
             }
         }
         

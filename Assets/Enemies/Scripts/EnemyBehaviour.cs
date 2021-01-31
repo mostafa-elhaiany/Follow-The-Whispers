@@ -104,7 +104,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
         if(!playerSeen && state == State.Catching)
         {
-            if (Mathf.Abs(Time.time - playerSeenTime) > 5)
+            if (Mathf.Abs(Time.time - playerSeenTime) > 20)
             {
                 state = State.Patroling;
                 patrollingStarted = false;
@@ -115,15 +115,16 @@ public class EnemyBehaviour : MonoBehaviour
     void handleCatchingPlayer()
     {
 
-        if(!player.transform.position.Equals(lastPlayerPos))
+        Vector3 enemyPos = transform.position;
+        Vector3 playerPos = player.transform.position;
+        float dist = Vector3.Distance(enemyPos, playerPos);
+
+        if (!player.transform.GetComponent<PlayerBehaviour>().isCrouched || dist<=(radius*0.25))
         {
             agent.SetDestination(player.transform.position);
             lastPlayerPos = player.transform.position;
         }
 
-        Vector3 enemyPos = transform.position;
-        Vector3 playerPos = player.transform.position;
-        float dist = Vector3.Distance(enemyPos, playerPos);
         if (dist <= agent.stoppingDistance) // player caught
         {
             manager.playerCaught();
