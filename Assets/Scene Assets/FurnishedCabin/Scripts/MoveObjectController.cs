@@ -73,7 +73,8 @@ public class MoveObjectController : MonoBehaviour
 		anim.SetBool(animBoolName+1,false);
 	}
 	public void OpenDoor(){
-		anim.SetBool(animBoolName+1,false);
+		anim.SetBool(animBoolName+1,true);
+		Debug.Log("opened");
 	}
 	void Update()
 	{		
