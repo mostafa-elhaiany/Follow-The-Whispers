@@ -37,62 +37,40 @@ public void Rescued(){
         if(timer<=0)
         {
             timer = 15;
-            int rand = Random.Range(0, 3);
-            AudioManager aManager = FindObjectOfType<AudioManager>();
-            switch(rand)
+            if(!isRescued)
             {
-                case 0:
-                    aManager.play("girl1");
-                    break;
-                case 1:
-                    aManager.play("girl2");
-                    break;
-                case 2:
-                    aManager.play("girl3");
-                    break;
-                case 3:
-                    aManager.play("girl4");
-                    break;
+                int rand = Random.Range(0, 3);
+                AudioManager aManager = FindObjectOfType<AudioManager>();
+                switch(rand)
+                {
+                    case 0:
+                        aManager.play("girl1");
+                        break;
+                    case 1:
+                        aManager.play("girl2");
+                        break;
+                    case 2:
+                        aManager.play("girl3");
+                        break;
+                    case 3:
+                        aManager.play("girl4");
+                        break;
+                }
             }
 
         }
 
 
         player = GameObject.FindGameObjectWithTag("Player");
-        //player = playerGameObject[0];
 
-        nanny = GameObject.FindGameObjectWithTag("Nanny");
-        //there is only one nanny, access first index only
-        //nanny = nannyArray[0];
-
-        if(!isRescued && cuffs.activeSelf==false){
-            //once ur not rescued, the equality prevents unnecessary assignments at each time frame
-            //Debug.Log("GOT CAUGHT SIS");
-             //brother got caught by nanny, reactivate cuffs
+        if (!isRescued && cuffs.activeSelf==false){
              cuffs.SetActive(true);
-             //move back to old location
              transform.position = initialTransform;
-             //disable navmesh
              sister.enabled=false;
-            
-            
         }
 
-        // if(!isRescued){
-        //     //keep checking check if player is close using distance from me to player
-        //     float distance = Vector3.Distance(transform.position, player.transform.position);
-        //     if(distance<= minDistanceToBeRescued){
-        //         Debug.Log("yay");
-        //         if(Input.GetKeyDown(KeyCode.E)){ //player interacted with sister
-        //             isRescued=true;
-        //         }
-        //     }
-        // }
-
         if(isRescued){
-            //remove cuffs
             cuffs.SetActive(false);
-            //start following brother after getting up
             sister.enabled = true;
             sister.SetDestination(player.transform.position);
             if(player.GetComponent<Animator>().GetBool("moving")){
@@ -108,12 +86,10 @@ public void Rescued(){
             
             agentIdle = Vector3.Distance (sister.transform.position, player.transform.position) <= sister.stoppingDistance;
 
-            //animator stuff that can only take place if the sister is rescued eg walking.
             sisterAnim.SetBool("brotherRunning", wasRunning && !agentIdle);
             sisterAnim.SetBool("brotherWalking", wasWalking && !agentIdle); 
             sisterAnim.SetBool("brotherScared", player.GetComponent<PlayerBehaviour>().scared); 
             sisterAnim.SetBool("brotherIdle",agentIdle); 
-            //change the speed of navmesh according to whether the player is running or not
             if(wasRunning){
                 sister.speed=4.1f;
             }
@@ -121,20 +97,16 @@ public void Rescued(){
                 sister.speed=3.5f;
             }
 
+            float dist = Vector3.Distance(sister.transform.position, player.transform.position);
+            if (dist>=20)
+            {
+                isRescued = false;
+
+            }
         }
         
          
          sisterAnim.SetBool("isRescued", isRescued); 
         
     }
-    //  private void OnTriggerEnter(Collider other) {
-        
-    //      //check if player saved me (not already rescued)
-    //      if(other.CompareTag("Player") && !isRescued){
-    //          //player collided
-    //          Debug.Log("rscued");
-    //          isRescued=true;
-    //      }
-        
-    // }
 }
