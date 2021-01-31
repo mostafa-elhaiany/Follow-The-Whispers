@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static bool isPaused;
-
     public static float mainSound;
     public static float effectsSound;
     public static float speechSound;
     public static float whisperSound;
+    
 
     public static bool mute;
 
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     int livesLeft;
     int keysCollected;
     int activeKeysCollected;
-
+    string lastCollectedKey="";
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -37,6 +37,15 @@ public class GameManager : MonoBehaviour
         livesLeft = 3;
         GameObject.FindGameObjectWithTag("StrikesTag").transform.GetComponent<Text>().text = "Strikes Left: " + livesLeft;
 
+    }
+
+    public int getCollectedKeys()
+    {
+        return keysCollected;
+    }
+    public int getActiveCollectedKeys()
+    {
+        return activeKeysCollected;
     }
 
 
@@ -58,7 +67,9 @@ public class GameManager : MonoBehaviour
 
     public void keyCollected(Transform key)
     {
-
+        if (key.name.Equals(lastCollectedKey))
+            return;
+        lastCollectedKey = key.name;
         GameObject.FindGameObjectWithTag("GameInfo").transform.GetComponent<inGameScript>().keyName = key.name;
 
         keysCollected++;

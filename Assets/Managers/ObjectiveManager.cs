@@ -30,6 +30,11 @@ public class ObjectiveManager : MonoBehaviour
         keys = GameObject.FindGameObjectsWithTag("ActiveKey");
         ready = true;
     }
+    public void findKeys()
+    {
+        keys = GameObject.FindGameObjectsWithTag("ActiveKey");
+    }
+
     void Update()
     {
         if (!ready)
