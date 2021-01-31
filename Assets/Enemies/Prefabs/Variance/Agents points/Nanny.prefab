@@ -11299,9 +11299,12 @@ MonoBehaviour:
   radius: 20
   waiting: 0
   initialPos: {fileID: 7304692896465117428}
+  initialVector: {x: 0, y: 0, z: 0}
   playerReported: 0
   forcedPatrolling: 0
   gotCaught: 0
+  timeLimit: 5
+  playerOutOfSight: 0
 --- !u!1 &7304692896467424751
 GameObject:
   m_ObjectHideFlags: 0
