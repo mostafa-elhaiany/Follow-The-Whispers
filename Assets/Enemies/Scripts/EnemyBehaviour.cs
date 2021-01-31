@@ -73,6 +73,20 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         handlePlayerInSight();
+        handleLockedDoors();
+    }
+
+    void handleLockedDoors()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + (Vector3.up * 2), transform.forward, out hit, radius))
+        {
+            if (hit.transform.tag == "Door")
+            {
+                hit.transform.gameObject.GetComponent<MoveObjectController>().OpenDoor();
+                StartCoroutine("closeDoor", hit.transform.gameObject);
+            }
+        }
     }
 
     void handlePlayerInSight()
@@ -133,6 +147,7 @@ public class EnemyBehaviour : MonoBehaviour
 
 
         handlePlayerInSight();
+        handleLockedDoors();
     }
 
     public void ghostForcedPatrolling()
