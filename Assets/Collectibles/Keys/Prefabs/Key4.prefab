@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3435885355588474461}
   m_Layer: 0
   m_Name: Key4
-  m_TagString: Key
+  m_TagString: ActiveKey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4202028c67de249ad6c32f403e3e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistane: 10
-  dist: 0
-  minSound: -80
-  maxSound: 0
