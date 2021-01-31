@@ -12,15 +12,23 @@ public class MainMenu : MonoBehaviour
     Button howToPlay;
     Button credits;
     Button quit;
-    public GameObject loading;     
+    public GameObject loading;
+    public GameObject howToPlayPannel;
+    public GameObject CreditsPannel;
+    public GameObject menuPannel;
+    public GameObject chooseLevel;
+
+
     public string gameSceneName;
-    public string creditsSceneName;
-    public string howToPlaySceneName;
     
     void Start()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        howToPlayPannel.SetActive(false);
+        CreditsPannel.SetActive(false);
+
 
         start = GameObject.Find("Start").GetComponent<Button>();
         howToPlay = GameObject.Find("HowTo").GetComponent<Button>();
@@ -31,10 +39,8 @@ public class MainMenu : MonoBehaviour
         credits.onClick.AddListener(ShowCredits);
         howToPlay.onClick.AddListener(ShowHowToPlay);
         quit.onClick.AddListener(Quit);
-        //Debug.Log(GameObject.Find("Start").name);
-        gameSceneName = "the game";
-        creditsSceneName = "Credits";
-        howToPlaySceneName = "HowToPlay";
+        gameSceneName = "Level1"; //ToDo add choose level scene
+
 
         loading.SetActive(false);
         start.gameObject.SetActive(true);
@@ -42,34 +48,30 @@ public class MainMenu : MonoBehaviour
         credits.gameObject.SetActive(true);
         quit.gameObject.SetActive(true);
 
+    }
 
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            howToPlayPannel.SetActive(false);
+            CreditsPannel.SetActive(false);
+            loading.SetActive(false);
+        }
     }
 
     public void StartGame(){
-        //Debug.Log("CLICKED");
-        //TODO: UNCOMMENT
-        loading.SetActive(true);
-        start.gameObject.SetActive(false);
-        howToPlay.gameObject.SetActive(false);
-        credits.gameObject.SetActive(false);
-        quit.gameObject.SetActive(false);
-
-        SceneManager.LoadScene(gameSceneName);
-		
-	}
+        menuPannel.SetActive(false);
+        chooseLevel.SetActive(true);
+    }
     public void ShowCredits(){
-        //Debug.Log("CLICKED");
-        SceneManager.LoadScene(creditsSceneName);
-		
-	}
+        CreditsPannel.SetActive(true);
+    }
     
     public void ShowHowToPlay(){
-        //Debug.Log("CLICKED");
-        SceneManager.LoadScene(howToPlaySceneName);
-		
-	}
-    
+        howToPlayPannel.SetActive(true);
+    }
+
     public void Quit(){
         Application.Quit();
 		
