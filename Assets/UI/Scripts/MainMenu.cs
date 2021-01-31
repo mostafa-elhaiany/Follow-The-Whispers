@@ -15,6 +15,9 @@ public class MainMenu : MonoBehaviour
     public GameObject loading;
     public GameObject howToPlayPannel;
     public GameObject CreditsPannel;
+    public GameObject menuPannel;
+    public GameObject chooseLevel;
+
 
     public string gameSceneName;
     
@@ -57,17 +60,9 @@ public class MainMenu : MonoBehaviour
     }
 
     public void StartGame(){
-        //Debug.Log("CLICKED");
-        //TODO: UNCOMMENT
-        loading.SetActive(true);
-        start.gameObject.SetActive(false);
-        howToPlay.gameObject.SetActive(false);
-        credits.gameObject.SetActive(false);
-        quit.gameObject.SetActive(false);
-
-        SceneManager.LoadScene(gameSceneName);
-		
-	}
+        menuPannel.SetActive(false);
+        chooseLevel.SetActive(true);
+    }
     public void ShowCredits(){
         CreditsPannel.SetActive(true);
     }
