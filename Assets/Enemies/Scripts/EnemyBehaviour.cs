@@ -96,7 +96,7 @@ public class EnemyBehaviour : MonoBehaviour
                     }
                     else if (hit.transform.tag == "Door")
                     {
-                        //hit.transform.gameObject.GetComponent<MoveObjectController>().OpenDoor();
+                        hit.transform.gameObject.GetComponent<MoveObjectController>().OpenDoor();
                         StartCoroutine("closeDoor",hit.transform.gameObject);
                     }
                 }
@@ -157,7 +157,7 @@ public class EnemyBehaviour : MonoBehaviour
     }
     IEnumerator closeDoor(GameObject door)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         door.GetComponent<MoveObjectController>().CloseDoor();
     }
 }
