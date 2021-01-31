@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class tutorialTextScript : MonoBehaviour
 {
-    float timer = 5;
+    //float timer = 5;
     public GameObject[] objects;
     public GameObject[] texts;
     public int indx = 0;

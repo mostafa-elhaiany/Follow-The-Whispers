@@ -119,12 +119,13 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         player.transform.position = room.position;
         sister.transform.position = girlLockedPosition.position;
+        sister.transform.GetComponent<sisterLogic>().isRescued = false;
         foreach (GameObject ghost in ghosts)
         {
-            ghost.GetComponent<EnemyLogic>().ghostForcedPatrolling();
+            ghost.GetComponent<EnemyBehaviour>().ghostForcedPatrolling();
         }
-        GameObject.FindGameObjectWithTag("Nanny").GetComponent<EnemyLogic>().ghostForcedPatrolling();
-        GameObject.FindGameObjectWithTag("Nanny").GetComponent<EnemyLogic>().restartEnemy();
+        GameObject.FindGameObjectWithTag("Nanny").GetComponent<EnemyBehaviour>().ghostForcedPatrolling();
+        GameObject.FindGameObjectWithTag("Nanny").GetComponent<EnemyBehaviour>().restartEnemy();
 
         yield return new WaitForSeconds(1);
         player.GetComponent<PlayerBehaviour>().restarted();
