@@ -58,12 +58,12 @@ public void Rescued(){
         }
 
 
-        GameObject[] playerGameObject = GameObject.FindGameObjectsWithTag("Player");
-        player = playerGameObject[0];
+        player = GameObject.FindGameObjectWithTag("Player");
+        //player = playerGameObject[0];
 
-        GameObject[] nannyArray = GameObject.FindGameObjectsWithTag("Nanny");
+        nanny = GameObject.FindGameObjectWithTag("Nanny");
         //there is only one nanny, access first index only
-        nanny = nannyArray[0];
+        //nanny = nannyArray[0];
 
         if(!isRescued && cuffs.activeSelf==false){
             //once ur not rescued, the equality prevents unnecessary assignments at each time frame

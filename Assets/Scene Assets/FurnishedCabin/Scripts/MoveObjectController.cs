@@ -15,7 +15,7 @@ public class MoveObjectController : MonoBehaviour
 	private bool showInteractMsg;
 	private GUIStyle guiStyle;
 	private string msg;
-	bool key;
+	public bool key;
 
 	private int rayLayerMask; 
 

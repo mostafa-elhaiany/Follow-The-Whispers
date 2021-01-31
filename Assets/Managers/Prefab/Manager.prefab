@@ -77,12 +77,60 @@ MonoBehaviour:
     loop: 1
     playOnAwake: 0
     group: {fileID: -4036734043627907578, guid: 7c4f29320a22ebc46aab4f602514a162, type: 2}
+  - name: doorLocked
+    clip: {fileID: 8300000, guid: cccc7fa0099577a43950b8f9efcf32e3, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    playOnAwake: 0
+    group: {fileID: -9083672138341617345, guid: 7c4f29320a22ebc46aab4f602514a162, type: 2}
+  - name: batteries
+    clip: {fileID: 8300000, guid: e9468fb805dc1e64da685bc0e9b475f8, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    playOnAwake: 0
+    group: {fileID: -9083672138341617345, guid: 7c4f29320a22ebc46aab4f602514a162, type: 2}
+  - name: girl1
+    clip: {fileID: 8300000, guid: 0a15146d6e246ce4db03f3fdb9a2def3, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    playOnAwake: 0
+    group: {fileID: -9083672138341617345, guid: 7c4f29320a22ebc46aab4f602514a162, type: 2}
+  - name: girl2
+    clip: {fileID: 8300000, guid: aab3dc75e976c0b4ebfdedc1299d411b, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    playOnAwake: 0
+    group: {fileID: -9083672138341617345, guid: 7c4f29320a22ebc46aab4f602514a162, type: 2}
+  - name: girl3
+    clip: {fileID: 8300000, guid: 860056fb52a048f47a8ade4b438d1781, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    playOnAwake: 0
+    group: {fileID: -9083672138341617345, guid: 7c4f29320a22ebc46aab4f602514a162, type: 2}
+  - name: girl4
+    clip: {fileID: 8300000, guid: dee9146a102def8458b5fb13ac08ce6b, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    playOnAwake: 0
+    group: {fileID: -9083672138341617345, guid: 7c4f29320a22ebc46aab4f602514a162, type: 2}
   background: 0
   mixer: {fileID: 24100000, guid: 7c4f29320a22ebc46aab4f602514a162, type: 2}
   masterVolume: 0
-  ambientVolume: -50
-  speechVolume: 0
-  effectVolume: 0
+  ambientVolume: -20
+  speechVolume: -36
+  effectVolume: -30
   whisperVolume: 20
 --- !u!114 &3936047821252692242
 MonoBehaviour:
@@ -101,8 +149,7 @@ MonoBehaviour:
   activeKeys:
   - {fileID: 7552276454398453620, guid: cdfe5289d49eb4640973334e6254e35d, type: 3}
   - {fileID: 5082735887781304307, guid: d4fd68325c236db46a528bc07ef38901, type: 3}
-  - {fileID: 9002168386941107469, guid: 7f3652848591ed04abf9f5d54faf4ebe, type: 3}
-  roomKey: {fileID: 0}
+  roomKey: {fileID: 9002168386941107469, guid: 7f3652848591ed04abf9f5d54faf4ebe, type: 3}
   otherKeys:
   - {fileID: 7602168740042373653, guid: 6f360e5c02d4b8f4cacce948a9dee3a6, type: 3}
   - {fileID: 6405764366242176923, guid: 5d0e595a79d519f4f84a18c6fcee53af, type: 3}
@@ -127,3 +174,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1be7cfb1d4bd943b432890445280e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doors:
+  - door: {fileID: 0}
+    requiredKey: BloodyKey
+    keyFound: 0
+  - door: {fileID: 0}
+    requiredKey: RoomKey
+    keyFound: 0
+  - door: {fileID: 0}
+    requiredKey: ApartmentKey
+    keyFound: 0
+  minSound: -80
+  maxSound: 0
