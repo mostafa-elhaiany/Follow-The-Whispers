@@ -9,7 +9,7 @@ OcclusionCullingSettings:
     smallestHole: 0.25
     backfaceThreshold: 100
   m_SceneGUID: 43209614a85539e4e914091f60dc7473
-  m_OcclusionCullingData: {fileID: 36300000, guid: 25634ffc208e60c4eba14182b835ead9, type: 2}
+  m_OcclusionCullingData: {fileID: 36300000, guid: a75fd5c84bf63ab4da4027ca0a79910d, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 12da7fd39bb66fe4bbbaa4c1c8f2af38, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d36a0e8cbdb747d4aa5213fe5215fc15, type: 2}
 --- !u!1001 &2355818
 PrefabInstance:
   m_ObjectHideFlags: 0
