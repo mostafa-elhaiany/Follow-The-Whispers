@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
             ghost.GetComponent<EnemyLogic>().ghostForcedPatrolling();
         }
         GameObject.FindGameObjectWithTag("Nanny").GetComponent<EnemyLogic>().ghostForcedPatrolling();
-        GameObject.FindGameObjectWithTag("Nanny").GetComponent<EnemyLogic>().restart();
+        GameObject.FindGameObjectWithTag("Nanny").GetComponent<EnemyLogic>().restartEnemy();
 
         yield return new WaitForSeconds(1);
         player.GetComponent<PlayerBehaviour>().restarted();

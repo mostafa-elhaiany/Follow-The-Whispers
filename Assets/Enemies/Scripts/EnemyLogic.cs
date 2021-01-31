@@ -17,20 +17,28 @@ Vector3 center;
 public float radius;
 public bool waiting; //used by animator
 public Transform initialPos;
+public Vector3 initialVector;
 GameObject player;
 int index;
 public bool playerReported; //used by other ghosts to tell the nanny they found him
  GameManager gameManager;
 public bool forcedPatrolling; //when ghost hits light
 public bool gotCaught;
+public float timeLimit = 5; //this is used in case that the player enters the room and the nanny cant see him
 
+public bool playerOutOfSight;
 
+// if timeRemaining > 0 timeRemaining -= Time.deltaTime;
+       
 void awake(){
 
     initialPos = transform;
+    initialVector = transform.position;
+    
     
 
 }
+
 // Start is called before the first frame update
     void Start()
     {
@@ -42,9 +50,6 @@ void awake(){
         center = transform.position;
         gameManager = FindObjectOfType<GameManager>();
         //myObject.GetComponent<MyScript>().MyFunction();
-
-
-
         //gameManager = GetComponent<GameManager>();
         
     }
@@ -53,17 +58,34 @@ void awake(){
     void Update()
     {
 
-        
+
         GameObject[] playerGameObject = GameObject.FindGameObjectsWithTag("Player");
         playerTransform = playerGameObject[0].transform;
         player = playerGameObject[0];
         //constantly checks if the player is seen and updates global variable seenPlayer
         playerSeenStatusUpdate();
+        //
+        if(playerOutOfSight){
+            if (timeLimit > 0)
+             timeLimit -= Time.deltaTime;
+        }
+        else{
+             timeLimit = 5;
+        }
+        if(playerOutOfSight && timeLimit<=0){
+            //The player was out of sight for too long, probably hiding behind in their room
+            //set seen to false so that the nanny will start patrolling again
+            seenPlayer = false;
+            //reset player out of site
+            playerOutOfSight=false;
+            playerReported=false;
+
+        }
         
         //I either saw the player, or I am the nanny and someone reported it
         if(seenPlayer || (tag =="Nanny" && playerReported)){
             //I saw player, I will go to it
-            enemy.SetDestination(playerTransform.position+ Vector3.forward*0.2f); //adding some space just to avoid bumping into player
+            enemy.SetDestination(playerTransform.position+ new Vector3(0.2f,0.2f,0.2f)); //adding some space just to avoid bumping into player
             //if I am the nanny and I am close to player return player to home and cut scene 
             //tag check is to prevent ghosts from returing the kid to the room
             float distance = Vector3.Distance(this.transform.position,playerTransform.position);
@@ -98,15 +120,16 @@ void awake(){
              }
 
              if(gotCaught){ //the player went to his room, reset the seenPlayer and go back to initial pos
+                restartEnemy();
                  //reset seenPlayer
                 //reset my position
-                 seenPlayer = false;
-                 playerReported=false;
-                 enemy.SetDestination(initialPos.position);
-                 GameObject sister = GameObject.FindGameObjectsWithTag("Sister")[0];
-                 sister.GetComponent<sisterLogic>().isRescued= false;
-                 //Debug.Log("GOT CAUGHT NEEM");
-                 gotCaught = false;
+                //  seenPlayer = false;
+                //  playerReported=false;
+                //  enemy.SetDestination(initialPos.position);
+                //  GameObject sister = GameObject.FindGameObjectsWithTag("Sister")[0];
+                //  sister.GetComponent<sisterLogic>().isRescued= false;
+                //  //Debug.Log("GOT CAUGHT NEEM");
+                //  gotCaught = false;
              }
              
              
@@ -140,11 +163,16 @@ void awake(){
         
     }
 
-    public void restart()
+    public void restartEnemy()
     {
         seenPlayer = false;
         playerReported = false;
-        enemy.SetDestination(initialPos.position);
+        
+        if(tag =="Nanny"){
+            enemy.Warp(initialVector);
+        }
+
+        enemy.SetDestination(initialVector);
         GameObject sister = GameObject.FindGameObjectsWithTag("Sister")[0];
         sister.GetComponent<sisterLogic>().isRescued = false;
         //Debug.Log("GOT CAUGHT NEEM");
@@ -197,16 +225,21 @@ void awake(){
                             //Debug.Log("Player raycast");
 
                         }
+                        else{
+                            if(seenPlayer){
+                                playerOutOfSight=true;
+                            }
+                        }
                         //Debug.DrawRay(transform.position, direction.normalized, Color.yellow);
                         ///Debug.Log("Did Hit");
                         //Debug.Log(hit.transform.tag+"Tag");
 
                     }
-                    else
-        {
-            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            //Debug.Log("Did not Hit");
-        }
+        //             else
+        // {
+        //     //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+        //     //Debug.Log("Did not Hit");
+        // }
                 }
     }
                 
