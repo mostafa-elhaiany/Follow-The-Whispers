@@ -72,7 +72,9 @@ public class MoveObjectController : MonoBehaviour
 	public void CloseDoor(){
 		anim.SetBool(animBoolName+1,false);
 	}
-
+	public void OpenDoor(){
+		anim.SetBool(animBoolName+1,false);
+	}
 	void Update()
 	{		
 		if (playerEntered)
